@@ -8,16 +8,7 @@
                 {{ range .Data.Pages }}
                     {{ if eq .Title $globalTitle }}
                         <div class="front-matter">
-                          <ul class="update-content">
-                            {{ if .Params.updates }}
-                              <div class="updates-heading">Updates:</div>
-                              {{ range .Params.updates }}
-                                <li>
-                                  {{ . }}
-                                </li>
-                              {{ end }}
-                            {{ end }}
-                          </ul>
+                          {{ partial "updates.html" . }}
                         </div>
                         {{ .Content }}
                     {{ end }}

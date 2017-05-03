@@ -386,7 +386,8 @@ section.main .content .front-matter .update-content{
   margin-bottom: 30px;
 }
 section.main .content .front-matter .update-content li{
-  margin-left: 10px;
+  margin-left: 20px;
+  list-style-type: circle;
 }
 
 section.main .content .front-matter .meta {
