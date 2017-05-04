@@ -4,44 +4,81 @@
 {{ partial "head.html" . }}
 <body>
 
-  <section class="header header-home">
-    <!-- <section class="nav"> -->
-    <!-- <div class="container-fluid"> -->
-    <div class="navbar navbar-default navbar-static-top">
+<!--
+  <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+              <div class="container">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="/index">miguelgrinberg.com</a>
+                  </div>
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                          <li><a href="/index">Home</a></li>
+                          <li><a href="/post/about-me">About Me</a></li>
+                          <li><a href="/post/about-this-blog">About This Blog</a></li>
 
-      <div class="container">
-        <a href="{{ .Site.BaseURL }}" class="logo"><img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/></a>
-        <div class="content">
-          <a href="https://www.huynle.com/"><div class="name"><h1>Huy Le</h1></div></a>
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li>
+                              <p class="navbar-text" style="margin-top: 10px; margin-bottom: 0px;">
+                                  <a type="application/rss+xml" href="/feed"><img src="/static/rss.png" alt="RSS Feed" title="RSS Feed"></a>
+                                  <a href="https://www.facebook.com/miguelgrinbergblog"><img src="/static/facebook.png" alt="Facebook" title="Facebook"></a>
+                                  <a href="https://plus.google.com/u/0/117786742456929977820"><img src="/static/googleplus.png" alt="Google+" title="Google+"></a>
+                                  <a href="http://www.linkedin.com/in/miguelgrinberg"><img src="/static/linkedin.png" alt="LinkedIn" title="LinkedIn"></a>
+                                  <a href="http://github.com/miguelgrinberg"><img src="/static/github.png" alt="GitHub" title="GitHub"></a>
+                                  <a href="https://twitter.com/#!/miguelgrinberg"><img src="/static/twitter.png" alt="Twitter" title="Twitter"></a>
+                              </p>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </nav> -->
+<section>
+    <nav class="header header-home">
+      <!-- <section class="nav"> -->
+      <!-- <div class="container-fluid"> -->
+      <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <a href="{{ .Site.BaseURL }}" class="logo"><img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/></a>
+          <div class="content">
+            <a href="https://www.huynle.com/"><div class="name"><h1>Huy Le</h1></div></a>
+          </div>
         </div>
-      </div>
 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarc">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarc">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
-      <nav id="navbarc" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          {{ range .Site.Sections }}
-              {{ range first 1 (where .Pages "Section" "ne" "")}}
-                  {{ if ne .Section "blog"}}
-                  <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</li></a>
-                  {{ end }}
-              {{ end }}
-          {{ end }}
-          {{ range where .Site.RegularPages "Section" ""}}
-              {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
-                  <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
-              {{ end }}
-          {{ end }}
-        </ul>
-      </nav>
-    </div>
+        <nav id="navbarc" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            {{ range .Site.Sections }}
+                {{ range first 1 (where .Pages "Section" "ne" "")}}
+                    {{ if ne .Section "blog"}}
+                    <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</li></a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            {{ range where .Site.RegularPages "Section" ""}}
+                {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
+                    <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
+                {{ end }}
+            {{ end }}
+          </ul>
+        </nav>
+      </div>
+    </nav>
   </section>
   <!-- </div> -->
 

@@ -145,7 +145,7 @@ section.header .container {
   justify-content: center;
 }
 
-section.header .navbar {
+nav.header .navbar {
   width: 100%;
   background-color: rgba(0,0,0,0.0);
 }
@@ -165,11 +165,11 @@ section.header .content {
   -ms-align-items: center;
   align-items: center;
 }
-section.header .container .logo {
+nav.header .container .logo {
   max-width: 100px;
   margin-left: -2em;
 }
-section.header .name {
+nav.header .name {
   padding-top: 20px;
   font-size: 28px;
   font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
@@ -203,7 +203,7 @@ section.header nav ul a:first-child {
 section.header nav ul a:last-child {
   margin-right: 0;
 }
-section.header nav ul li {
+nav.header nav ul li {
   color: #555555;
   font-weight: 500;
   font-size: 14px;
