@@ -2,15 +2,23 @@
 <section class="main">
     <div class="container">
         <div class="content">
-            {{ $globalTitle := .Title}}
+            {{ $globalTitle := .Title }}
 
             <div class="markdown">
                 {{ range .Data.Pages }}
                     {{ if eq .Title $globalTitle }}
-                        <div class="front-matter">
-                          {{ partial "updates.html" . }}
+                      {{ if ne .Params.coverimage nil }}
+                        <div class="row">
+                          <div class="col-md-12">
+                            <img src="{{ .Params.coverimage }}" alt="placeholder 960" class="img-responsive"/>
+                          </div>
                         </div>
-                        {{ .Content }}
+                      {{ end }}
+
+                      <div class="front-matter">
+                        {{ partial "updates.html" . }}
+                      </div>
+                      {{ .Content }}
                     {{ end }}
                 {{ end }}
             </div>

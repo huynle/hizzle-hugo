@@ -134,7 +134,8 @@ section {
     max-width: 750px;
   }
 }
-section.header .container {
+
+nav.header .container {
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -849,4 +850,10 @@ section.main .content .navigation a {
   section.main .content .navigation div {
     margin-top: 0em;
   }
+}
+
+.no-padding{
+  padding-left:0;
+  padding-right:0;
+  height: 200px;
 }
