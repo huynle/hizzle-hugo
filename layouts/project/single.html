@@ -1,0 +1,43 @@
+{{ partial "header.html" . }}
+<section class="main">
+    <div class="container">
+        <div class="content">
+            {{ $globalTitle := .Title}}
+            <div class="markdown">
+                {{ range .Site.AllPages }}
+                    {{ if eq .Title $globalTitle }}
+                        <div class="front-matter">
+                          {{ partial "updates.html" . }}
+                        </div>
+                        {{ .Content }}
+                    {{ end }}
+                {{ end }}
+            </div>
+
+            <div class="posts">
+              {{ if ne .Params.project nil }}
+
+                {{ $projPosts := where .Site.AllPages "Params.project" .Params.project }}
+                {{ $projPosts := where $projPosts "Params.type" "!=" "project" }}
+
+                {{ $projPosts := where $projPosts "Params.project" .Params.project }}
+                {{ $nbPosts := len ($projPosts) }}
+
+                  {{ if gt $nbPosts 0 }}
+                      <ul>
+                      {{ range $projPosts.GroupByDate "Jan, 2006" "desc" }}
+                          <li class="groupby">{{ .Key }}</li>
+                          {{ range .Pages.ByPublishDate }}
+                            {{ if ne .Title $globalTitle }}
+                              {{ partial "li.html" . }}
+                            {{ end }}
+                          {{ end }}
+                      {{ end }}
+                      </ul>
+                  {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ partial "footer.html" . }}

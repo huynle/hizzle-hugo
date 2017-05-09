@@ -12,7 +12,7 @@
         <div class="container">
           <a href="{{ .Site.BaseURL }}" class="logo"><img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/></a>
           <div class="content">
-            <a href="https://www.huynle.com/"><div class="name"><h1>Huy Le</h1></div></a>
+            <a href={{ .Site.BaseURL }}><div class="name"><h1>Huy Le</h1></div></a>
           </div>
         </div>
 
@@ -29,25 +29,25 @@
           <ul class="nav navbar-nav">
             {{ range .Site.Sections }}
                 {{ range first 1 (where .Pages "Section" "ne" "")}}
-                    {{ if (ne .Section "blog") | and (ne .Section "projects") }}
+                    {{if (eq .Section "projects")}}
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          {{ range (where .Site.AllPages "Type" "project")}}
+                            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                          {{ end }}
+                        </ul>
+                      </li>
+                    {{ else if (ne .Section "blog") | and (ne .Section "projects") }}
                     <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</li></a>
                     {{ end }}
                 {{ end }}
             {{ end }}
 
             {{ range where .Site.RegularPages "Section" ""}}
-                {{if (eq .Title "projects")}}
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Title }}<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      {{ range (where .Site.AllPages "Layout" "project")}}
-                        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-                      {{ end }}
-                    </ul>
-                  </li>
-                {{ else if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
-                    <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
-                {{ end }}
+              {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
+              {{ end }}
             {{ end }}
           </ul>
         </nav>

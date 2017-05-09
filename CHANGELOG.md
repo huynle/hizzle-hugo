@@ -1,5 +1,10 @@
 # Changelog
 
+> v1.1.1
+ - Forked from [fuegowlf](https://github.com/fuegowolf/cocoa-eh-hugo-theme)
+ - Allow private folder in content to not be published
+ - added 'projects' folder section to allow project posts to be organized
+
 > v1.0.0
 
 - Change the set of fonts to **Nexa Bold, Raleway and Merriweather**.
