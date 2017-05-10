@@ -60,3 +60,16 @@ ignoreFiles = [ "private"]
   customCSS = ["css/custom.css"]
   # allow custom js scripts to be injected. The actual locataion of this file would live in "blog/static/js//custom.css"
   # customJS = ["js/tranquil.js"]
+
+[params.colors]
+identifier = "#527fc1f"
+identifier_dark = "#1a3152"
+trivial = "#6a7a8b"
+foreground = "#181d2a"
+background = "#f9f9f9"
+background_dark = "#282a36"
+code = "#87a5d2"
+type = "#97d28b"
+special = "#ffcb8d"
+value = "#96c2d7"
+statement = "#ff8e91"
