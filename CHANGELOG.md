@@ -1,9 +1,15 @@
 # Changelog
 
 > v1.1.1
- - Forked from [fuegowlf](https://github.com/fuegowolf/cocoa-eh-hugo-theme)
- - Allow private folder in content to not be published
- - added 'projects' folder section to allow project posts to be organized
+ - Diverged from [fuegowlf](https://github.com/fuegowolf/cocoa-eh-hugo-theme)
+ - Allow private folder in content to not be published.
+ - Add 'projects' folder section to allow project posts to be organized and presented in dropdown.
+ - Add coverimage in frontmatter for posts and sections
+ - Included customCSS and customJS in config.toml
+ - Add page/post ignore in config.toml to allow page to be rendered and not added to navigation bar
+ - Theme migrate to use Bootstrap, allow better mobile view of navigation bar
+ - Add googleAnalytics, value is set in config.toml
+ - Add 'updates' to frontmatter. When a list is given in a post, the updates would show at the top of post.
 
 > v1.0.0
 

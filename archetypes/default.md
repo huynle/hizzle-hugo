@@ -1,6 +1,12 @@
-+++
-meta_img = "/images/image.jpg"
-tags = ["tags"]
-description = "Desc"
-title = "Title"
-+++
+---
+description: empty
+draft: true
+tags:
+  - TBD
+categories:
+  - TBD
+coverimage:
+coverCaption:
+type: blog
+
+---
