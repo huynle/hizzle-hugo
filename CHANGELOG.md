@@ -6,6 +6,12 @@
  - Add 'projects' folder section to allow project posts to be organized and presented in dropdown.
  - Add coverimage in frontmatter for posts and sections
  - Included customCSS and customJS in config.toml
+> v1.1.0
+
+- Add more speed and asynchronous loading, of fonts especially
+- Add more languages to `highlightjs` that are nowadays really used, like Rust, Go, Docker, Clojure, etc. ...
+- Some fixes with some Pull Requests (thx to @davidskeck, @mtn and @maiki)
+
  - Add page/post ignore in config.toml to allow page to be rendered and not added to navigation bar
  - Theme migrate to use Bootstrap, allow better mobile view of navigation bar
  - Add googleAnalytics, value is set in config.toml
