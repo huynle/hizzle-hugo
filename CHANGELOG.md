@@ -1,5 +1,22 @@
 # Changelog
 
+> v1.1.1
+ - Diverged from [fuegowlf](https://github.com/fuegowolf/cocoa-eh-hugo-theme)
+ - Allow private folder in content to not be published.
+ - Add 'projects' folder section to allow project posts to be organized and presented in dropdown.
+ - Add coverimage in frontmatter for posts and sections
+ - Included customCSS and customJS in config.toml
+> v1.1.0
+
+- Add more speed and asynchronous loading, of fonts especially
+- Add more languages to `highlightjs` that are nowadays really used, like Rust, Go, Docker, Clojure, etc. ...
+- Some fixes with some Pull Requests (thx to @davidskeck, @mtn and @maiki)
+
+ - Add page/post ignore in config.toml to allow page to be rendered and not added to navigation bar
+ - Theme migrate to use Bootstrap, allow better mobile view of navigation bar
+ - Add googleAnalytics, value is set in config.toml
+ - Add 'updates' to frontmatter. When a list is given in a post, the updates would show at the top of post.
+
 > v1.0.0
 
 - Change the set of fonts to **Nexa Bold, Raleway and Merriweather**.

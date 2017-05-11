@@ -13,7 +13,7 @@
 
 {{ partial "head_includes.html" . }}
 
-{{ if .Params.ga.async }}
+{{ if .Params.googleAnalytics }}
   {{ template "_internal/google_analytics_async.html" . }}
 {{ else }}
   {{ template "_internal/google_analytics.html" . }}

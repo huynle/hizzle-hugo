@@ -1,32 +1,75 @@
-baseurl = "https://example.com/"
+baseurl = "https://www.user.com/"
 theme = "cocoa-eh"
-builddrafts = true
+builddrafts = false
 canonifyurls = true
 contentdir = "content"
 languageCode = "en-US"
 layoutdir = "layouts"
 publishdir = "public"
-author = "Alexis Tacnet"
-title = "Cocoa Enhanced"
-disqusshortname = ""
+author = "user"
+title = "blog title"
+disqusshortname = "user"
 pluralizelisttitles = false
+MetaDataFormat = 'yaml'
+googleAnalytics = "UA-123456"
+
+# ignore thes folders inside content folder. Useful for personal sidenotes
+ignoreFiles = [ "private"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[blackfriday]
+  fractions = false
+  plainIDAnchors = true
+  extensions = ["hardLineBreak"]
 
 [permalinks]
-blog = "blog/:slug/"
+  # the permalinks is set to link to the baseurl/category/filename
+  # the reason for this it will allow Disqus to track the article.. even if different revision of the post as been updated.
+  # eg. file1 on 4/1 has "Testing" as title -> 4/2 file1 can have "Testing Updated" and Disqus will still track to the same article
+  essentials = "essentials/:slug/"
+  howtos = "howtos/:slug/"
+  learnings = "learnings/:slug/"
+  other = "other/:slug"
+  projects = "projects/:slug/"
+  resources = "resources/:slug/"
 
 [params]
-dateform = "Jan 2, 2006"
-dateformfull = "Mon Jan 2 2006 15:04:05 MST"
-description = "Example blog"
-copyright = "Copyright © 2015 Nishanth Shanmugham"
-logofile = "img/logo.png"
-faviconfile = "img/logo.png"
-highlightjs = true
-progressively = true
-latestpostcount = 5
-github = "example"
-email = "you@example.com"
-linkedin = "john-example-aa80ue8è"
-twitter = "example"
-social_banner = "img/banner.png"
-posts_navigation = true
+  dateform = "Jan 2, 2006"
+  dateformfull = "Mon Jan 2 2006 15:04:05 MST"
+  description = "A Blog..."
+  copyright = "Copyright © 2017 user"
+  logofile = "img/favicon.png"
+  faviconfile = "img/favicon.png"
+  highlightjs = true
+  progressively = true
+  latestpostcount = 5
+  github = "user"
+  email = "user@gmail.com"
+  linkedin = "user"
+  twitter = "user"
+  social_banner = "img/banner.png"
+  posts_navigation = true
+
+  # titles of custom pages to ignore from menu here
+  customPages = ["Posts"]
+
+  # allow custom css to be injected. The actual locataion of this file would live in "blog/static/css//custom.css"
+  customCSS = ["css/custom.css"]
+  # allow custom js scripts to be injected. The actual locataion of this file would live in "blog/static/js//custom.css"
+  # customJS = ["js/tranquil.js"]
+
+[params.colors]
+  identifier = "#527fc1f"
+  identifier_dark = "#1a3152"
+  trivial = "#6a7a8b"
+  foreground = "#181d2a"
+  background = "#f9f9f9"
+  background_dark = "#282a36"
+  code = "#87a5d2"
+  type = "#97d28b"
+  special = "#ffcb8d"
+  value = "#96c2d7"
+  statement = "#ff8e91"
