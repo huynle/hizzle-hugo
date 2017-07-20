@@ -27,7 +27,7 @@
 
         <nav id="navbarc" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            {{ range .Site.Sections }}
+            {{ range $.Site.Home.Sections }}
                 {{ range first 1 (where .Pages "Section" "ne" "")}}
                     {{if (eq .Section "projects")}}
                       <li class="dropdown">
