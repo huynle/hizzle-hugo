@@ -28,20 +28,18 @@
         <nav id="navbarc" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             {{ range $.Site.Home.Sections }}
-                {{ range first 1 (where .Pages "Section" "ne" "")}}
-                    {{if (eq .Section "projects")}}
-                      <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          {{ range (where .Site.AllPages "Type" "project")}}
-                            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-                          {{ end }}
-                        </ul>
-                      </li>
-                    {{ else if (ne .Section "blog") | and (ne .Section "projects") }}
-                    <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</li></a>
+              {{if (eq .Section "projects") | or (eq .Section "private")}}
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {{ range (where .Data.Pages "Type" "project")}}
+                      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
                     {{ end }}
-                {{ end }}
+                  </ul>
+                </li>
+              {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") }}
+                <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</li></a>
+              {{ end }}
             {{ end }}
 
             {{ range where .Site.RegularPages "Section" ""}}
