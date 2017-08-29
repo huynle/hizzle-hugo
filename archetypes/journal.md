@@ -3,6 +3,8 @@ description: Daily Journal
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
+tags:
+  - TBD
 type: posts
 layout: journal
 ---
