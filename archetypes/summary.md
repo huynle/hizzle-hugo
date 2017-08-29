@@ -4,7 +4,8 @@ title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 type: posts
-layout: journal
+layout: summary-journal
+project: journal
 ---
 
 # Weekly Check-In

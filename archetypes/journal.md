@@ -6,7 +6,8 @@ draft: true
 tags:
   - TBD
 type: posts
-layout: journal
+layout: daily-journal
+project: journal
 ---
 
 # Today's To-do
