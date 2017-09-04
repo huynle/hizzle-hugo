@@ -8,8 +8,12 @@ layout: summary-journal
 project: journal
 ---
 
+# Today's To-do
+
+
+
 # Weekly Check-In
-- Run 4 Times a Week - Not Complete
+- Run 3 Times a Week - Not Complete
 
 
 # What I Learned This Week
@@ -17,7 +21,6 @@ project: journal
 
 
 # List My Accomplishments for this Week
-
 
 
 
