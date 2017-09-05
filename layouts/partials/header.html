@@ -5,19 +5,17 @@
 <body>
 
 <section class="header">
-      <!-- <section class="nav"> -->
-      <!-- <div class="container-fluid"> -->
-        <!-- <div class="container"> -->
-      <div class="content">
-        <a href="{{ .Site.BaseURL }}" class="logo">
-          <img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/>
-        </a>
-        <!-- <div class="content"> -->
-        <a href={{ .Site.BaseURL }} class="name">
-          Huy Le
-        </a>
+      <div>
+        <div class="left-div">
+          <a href="{{ .Site.BaseURL }}" class="logo">
+            <img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/>
+          </a>
+        </div>
+        <div class="right-div">
+          <a href={{ .Site.BaseURL }} class="name">Huy Le</a>
+        </div>
       </div>
-        <!-- </div> -->
+
       <nav class="navbar navbar-default">
         <!-- <navi class="header"> -->
           <div class="navbar-header">

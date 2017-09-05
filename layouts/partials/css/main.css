@@ -107,11 +107,12 @@ section {
 }
 
 section.header .content {
+  align-items: center;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: -ms-flex;
-  display: flex;
+  display: table;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
   -ms-flex-direction: column;
@@ -119,18 +120,19 @@ section.header .content {
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
-  align-items: center;
-  display: inline;
+  width: 100%;
+  /* text-align: center; */
 }
-section.header .content .logo {
-  max-width: 100px;
-  margin-left: -2em;
+section.header .logo {
+  /* box-sizing: border-box; */
+  /* max-width: 100px; */
+  /* margin-left: -2em; */
 }
-section.header .content .name {
-  padding-top: 20px;
-  font-size: 28px;
-  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
+section.header .name {
+  /* padding-top: 20px; */
+  font-size: 50px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', 'sans-serif';
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -139,19 +141,32 @@ section.header .content .name {
   color: #555555;
 }
 
+
+.left-div
+{
+  display: table-cell;
+  /* max-width: 300px; */
+  text-align: right;
+  vertical-align: middle;
+  width:50vw;
+}
+.right-div
+{
+  display: table-cell;
+  /* margin: auto 0; */
+  text-align: left;
+  width:50vw;
+  vertical-align: middle;
+ /* max-width: 300px; */
+}
+
 .navbar-default {
-    background-color: transparent;
-    border-color: transparent;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 nav {
-  /* display: block; */
   width: 100%;
-  /* background-color: rgba(0,0,0,0.0); */
-  background-color: transparent;
-/* } */
-
-/* nav { */
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -685,7 +700,7 @@ section.main .content .navigation a {
 
 /* Fonts */
 
-.wf-raleway-n4-active body, 
+.wf-raleway-n4-active body,
 .wf-raleway-n4-active section.header nav ul li,
 .wf-raleway-n7-active section.main .content .page-heading,
 .wf-raleway-n2-active section.main .container.f04 .content .num,
