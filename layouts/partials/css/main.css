@@ -23,6 +23,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -83,7 +84,7 @@ body {
   width: 100%;
   min-height: 100%;
   font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  /* font-family: 'Helvetica Neue', 'Arial', sans-serif; */
   color: #111111;
   line-height: 1.6;
   text-rendering: optimizeLegibility !important;
@@ -92,35 +93,17 @@ body {
   text-rendering: geometricPrecision !important;
 }
 section {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
   align-items: center;
   width: 100%;
-}
-.container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
   display: flex;
-  width: 100%;
 }
 
-nav.header .container {
+nav.header {
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
-  align-items: center;
+  /* align-items: center; */
   -webkit-justify-content: center;
   -moz-justify-content: center;
   -ms-justify-content: center;
@@ -132,7 +115,11 @@ nav.header .navbar {
   background-color: rgba(0,0,0,0.0);
 }
 
-section.header .content {
+nav.header .content {
+  display: block;
+}
+
+nav.header .content {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -147,7 +134,7 @@ section.header .content {
   -ms-align-items: center;
   align-items: center;
 }
-nav.header .container .logo {
+nav.header .logo {
   max-width: 100px;
   margin-left: -2em;
 }
@@ -199,7 +186,7 @@ nav.header nav ul li {
 section.header nav ul li:hover {
   color: #111111;
 }
-section.footer .container {
+section.footer  {
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -212,7 +199,7 @@ section.footer .container {
   width: 100%;
   text-align: center;
 }
-section.footer .container a {
+section.footer  a {
   font-size: 14px;
   margin-left: 6px;
   margin-right: 6px;
@@ -222,24 +209,24 @@ section.footer .container a {
   -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
-section.footer .container a:first-child {
+section.footer  a:first-child {
   margin-left: 0;
 }
-section.footer .container a:last-child {
+section.footer a:last-child {
   margin-right: 0;
 }
-section.footer .container a:hover {
+section.footer a:hover {
   opacity: 0.8;
 }
-section.footer .container a .icon {
+section.footer .icon {
   width: 16px;
   height: 16px;
 }
-section.footer .container .copyright {
+section.footer  .copyright {
   flex-grow: 0.5;
   text-align: start;
 }
-section.footer .container .icons {
+section.footer  .icons {
   flex-grow: 0.5;
   text-align: end;
 }
@@ -430,6 +417,7 @@ section.header-home {
 }
 section.main {
   padding-top: 32px;
+  display: block;
 }
 section.main .container .content .post-item .meta {
     display: block;
@@ -451,8 +439,12 @@ a:hover {
 img {
   max-width: 100%;
 }
+section.coverimage {
+  max-width: 100%;
+}
 section.main .content {
     width: 100%;
+    /* display: block; */
 }
 section.main .content .markdown {
   font-size: 1.1em;

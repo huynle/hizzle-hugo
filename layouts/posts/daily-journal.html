@@ -1,17 +1,31 @@
 {{ partial "header.html" . }}
 
-<section class="main post non-narrow zero-top-spacing">
+<section class="coverimage">
     <!-- <div class="container-fluid"> -->
-      <div class="container">
-        <div class="content">
+      <!-- <div class="container"> -->
             {{ if ne .Params.coverimage nil }}
-              <div class="row">
-                <div class="col-md-12">
-                  <img src="{{ .Params.coverimage }}" alt="placeholder 960" class="img-responsive"/>
-                </div>
-              </div>
-            {{ end }}
+                <div class="post-header-cover">
+                    <img src="{{ .Params.coverimage }}" alt="placeholder 960" class="img-responsive"/>
+                    <!-- <div class="post-header-cover" style="background-image:url('//d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city.jpg')" data-behavior="4"> -->
+                    </div>
+<!-- <div class="post-header-cover -->
+<!--               text-center -->
+<!--               " style="background-image:url('//d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city.jpg')" data-behavior="4"> -->
+<!-- <div class="post-header main-content-wrap text-center"> -->
+<!-- <h1 class="post-title" itemprop="headline"> -->
+<!-- Welcome to Tranquilpeak 0.3.1-BETA -->
+<!-- </h1> -->
+<!-- <div class="postShorten-meta post-meta"> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
 
+                <!-- </div> -->
+            {{ end }}
+        </section>
+
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
             <div class="front-matter">
               <div class="title-container">
                   {{ partial "page-heading" . }}
@@ -64,7 +78,7 @@
               {{ template "_internal/disqus.html" . }}
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     <!-- </div> -->
 </section>
 
