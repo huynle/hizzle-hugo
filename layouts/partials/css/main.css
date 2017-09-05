@@ -23,6 +23,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -83,7 +84,7 @@ body {
   width: 100%;
   min-height: 100%;
   font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  /* font-family: 'Helvetica Neue', 'Arial', sans-serif; */
   color: #111111;
   line-height: 1.6;
   text-rendering: optimizeLegibility !important;
@@ -92,52 +93,26 @@ body {
   text-rendering: geometricPrecision !important;
 }
 section {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
+   -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  /* align-items: center; */
   -webkit-justify-content: center;
   -moz-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
   align-items: center;
   width: 100%;
-}
-.container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  width: 100%;
-}
-
-nav.header .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-
-nav.header .navbar {
-  width: 100%;
-  background-color: rgba(0,0,0,0.0);
+  display: block;
 }
 
 section.header .content {
+  align-items: center;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: -ms-flex;
-  display: flex;
+  display: table;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
   -ms-flex-direction: column;
@@ -145,17 +120,19 @@ section.header .content {
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
-  align-items: center;
+  width: 100%;
+  /* text-align: center; */
 }
-nav.header .container .logo {
-  max-width: 100px;
-  margin-left: -2em;
+section.header .logo {
+  /* box-sizing: border-box; */
+  /* max-width: 100px; */
+  /* margin-left: -2em; */
 }
-nav.header .name {
-  padding-top: 20px;
-  font-size: 28px;
-  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
+section.header .name {
+  /* padding-top: 20px; */
+  font-size: 50px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', 'sans-serif';
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -163,10 +140,48 @@ nav.header .name {
   color: #333333;
   color: #555555;
 }
-section.header nav {
+
+
+.left-div
+{
+  display: table-cell;
+  /* max-width: 300px; */
+  text-align: right;
+  vertical-align: middle;
+  width:50vw;
+}
+.right-div
+{
+  display: table-cell;
+  /* margin: auto 0; */
+  text-align: left;
+  width:50vw;
+  vertical-align: middle;
+ /* max-width: 300px; */
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+nav {
+  width: 100%;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  /* align-items: center; */
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+/* } */
+
+/* nav { */
   margin-bottom: 16px;
 }
-section.header nav ul {
+
+navi.ul {
   list-style: none;
   text-align: center;
   display: -webkit-inline-flex;
@@ -175,17 +190,17 @@ section.header nav ul {
   display: -ms-inline-flex;
   display: inline-flex;
 }
-section.header nav ul a {
+nav ul a {
   margin-left: 6px;
   margin-right: 6px;
 }
-section.header nav ul a:first-child {
+nav ul a:first-child {
   margin-left: 0;
 }
-section.header nav ul a:last-child {
+nav ul a:last-child {
   margin-right: 0;
 }
-nav.header nav ul li {
+nav ul li {
   color: #555555;
   font-weight: 400;
   font-size: 14px;
@@ -196,10 +211,10 @@ nav.header nav ul li {
   -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
-section.header nav ul li:hover {
+nav ul li:hover {
   color: #111111;
 }
-section.footer .container {
+section.footer  {
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -212,7 +227,7 @@ section.footer .container {
   width: 100%;
   text-align: center;
 }
-section.footer .container a {
+section.footer  a {
   font-size: 14px;
   margin-left: 6px;
   margin-right: 6px;
@@ -222,24 +237,24 @@ section.footer .container a {
   -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
-section.footer .container a:first-child {
+section.footer  a:first-child {
   margin-left: 0;
 }
-section.footer .container a:last-child {
+section.footer a:last-child {
   margin-right: 0;
 }
-section.footer .container a:hover {
+section.footer a:hover {
   opacity: 0.8;
 }
-section.footer .container a .icon {
+section.footer .icon {
   width: 16px;
   height: 16px;
 }
-section.footer .container .copyright {
+section.footer  .copyright {
   flex-grow: 0.5;
   text-align: start;
 }
-section.footer .container .icons {
+section.footer  .icons {
   flex-grow: 0.5;
   text-align: end;
 }
@@ -430,6 +445,7 @@ section.header-home {
 }
 section.main {
   padding-top: 32px;
+  display: block;
 }
 section.main .container .content .post-item .meta {
     display: block;
@@ -451,8 +467,12 @@ a:hover {
 img {
   max-width: 100%;
 }
+section.coverimage {
+  max-width: 100%;
+}
 section.main .content {
     width: 100%;
+    /* display: block; */
 }
 section.main .content .markdown {
   font-size: 1.1em;
@@ -680,7 +700,7 @@ section.main .content .navigation a {
 
 /* Fonts */
 
-.wf-raleway-n4-active body, 
+.wf-raleway-n4-active body,
 .wf-raleway-n4-active section.header nav ul li,
 .wf-raleway-n7-active section.main .content .page-heading,
 .wf-raleway-n2-active section.main .container.f04 .content .num,

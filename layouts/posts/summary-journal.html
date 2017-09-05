@@ -1,17 +1,15 @@
 {{ partial "header.html" . }}
 
-<section class="main post non-narrow zero-top-spacing">
-    <!-- <div class="container-fluid"> -->
-      <div class="container">
-        <div class="content">
-            {{ if ne .Params.coverimage nil }}
-              <div class="row">
-                <div class="col-md-12">
-                  <img src="{{ .Params.coverimage }}" alt="placeholder 960" class="img-responsive"/>
-                </div>
-              </div>
-            {{ end }}
+<section class="coverimage">
+	{{ if ne .Params.coverimage nil }}
+	<div class="post-header-cover">
+	    <img src="{{ .Params.coverimage }}" alt="placeholder 960" class="img-responsive"/>
+	    </div>
+	{{ end }}
+</section>
 
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
             <div class="front-matter">
               <div class="title-container">
                   {{ partial "page-heading" . }}
@@ -39,8 +37,6 @@
               </div>
           </div>
           <div class="markdown">
-              SUMMARY LAYOUT!
-
               {{ partial "content" . }}
               <br>
           </div>
@@ -66,7 +62,7 @@
               {{ template "_internal/disqus.html" . }}
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     <!-- </div> -->
 </section>
 

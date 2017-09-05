@@ -1,27 +1,18 @@
 {{ partial "header.html" . }}
-<section class="main">
-    <div class="container">
+
+{{ partial "coverimage.html" . }}
+
+<section class="main non-narrow zero-top-spacing">
         <div class="content">
             {{ $globalTitle := .Title }}
 
             <div class="markdown">
-                {{ range .Data.Pages }}
-                    {{ if eq .Title $globalTitle }}
-                      {{ if ne .Params.coverimage nil }}
-                        <div class="row">
-                          <div class="col-md-12">
-                            <img src="{{ .Params.coverimage }}" alt="placeholder 960" class="img-responsive"/>
-                          </div>
-                        </div>
-                      {{ end }}
-
                       <div class="front-matter">
                         {{ partial "updates.html" . }}
                       </div>
                       {{ .Content }}
-                    {{ end }}
-                {{ end }}
             </div>
+
             <div class="posts">
             {{ if ne (len (where .Data.Pages "Title" "!=" $globalTitle)) 0}}
                 <div class="page-heading">{{ .Title }}</div>
@@ -35,6 +26,5 @@
             {{ end }}
             </div>
         </div>
-    </div>
 </section>
 {{ partial "footer.html" . }}
