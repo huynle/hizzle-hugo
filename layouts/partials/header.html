@@ -8,29 +8,29 @@
       <!-- <section class="nav"> -->
       <!-- <div class="container-fluid"> -->
         <!-- <div class="container"> -->
-    <div class="content">
-      <a href="{{ .Site.BaseURL }}" class="logo">
-        <img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/>
-      </a>
-      <!-- <div class="content"> -->
-      <a href={{ .Site.BaseURL }} class="name">
-        Huy Le
-      </a>
-    </div>
+      <div class="content">
+        <a href="{{ .Site.BaseURL }}" class="logo">
+          <img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/>
+        </a>
+        <!-- <div class="content"> -->
+        <a href={{ .Site.BaseURL }} class="name">
+          Huy Le
+        </a>
+      </div>
         <!-- </div> -->
-      <div>
-        <navi class="header">
-          <div class="navbar navbar-default navbar-static-top">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarc">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
+      <nav class="navbar navbar-default">
+        <!-- <navi class="header"> -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarc">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
 
-            <nav id="navbarc" class="navbar-collapse collapse">
+          <div id="navbarc" class="collapse navbar-collapse">
+            <!-- <div class="navbar navbar-default navbar-static-top"> -->
               <ul class="nav navbar-nav">
                 {{ range sort $.Site.Home.Sections }}
                   {{if (eq .Section "projects") | or (eq .Section "private")}}
@@ -43,7 +43,7 @@
                       </ul>
                     </li>
                   {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") }}
-                    <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</li></a>
+                  <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</a></li>
                   {{ end }}
                 {{ end }}
 
@@ -53,9 +53,9 @@
                   {{ end }}
                 {{ end }}
               </ul>
-            </nav>
+            <!-- </div> -->
           </div>
-        </navi>
-      </div>
+        <!-- </navi> -->
+      </nav>
   </section>
   <!-- </div> -->

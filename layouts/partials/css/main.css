@@ -139,12 +139,19 @@ section.header .content .name {
   color: #555555;
 }
 
-navi.header .navbar {
-  width: 100%;
-  background-color: rgba(0,0,0,0.0);
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
 }
 
 nav {
+  /* display: block; */
+  width: 100%;
+  /* background-color: rgba(0,0,0,0.0); */
+  background-color: transparent;
+/* } */
+
+/* nav { */
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -153,12 +160,13 @@ nav {
   -moz-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-}
+/* } */
 
-nav {
+/* nav { */
   margin-bottom: 16px;
 }
-nav ul {
+
+navi.ul {
   list-style: none;
   text-align: center;
   display: -webkit-inline-flex;
