@@ -1,12 +1,5 @@
 {{ partial "header.html" . }}
-
-<section class="coverimage">
-	{{ if ne .Params.coverimage nil }}
-	<div class="post-header-cover">
-	    <img src="{{ .Params.coverimage }}" alt="placeholder 960" class="img-responsive"/>
-	    </div>
-	{{ end }}
-</section>
+{{ partial "coverimage.html" . }}
 
 <section class="main post non-narrow zero-top-spacing">
         <div class="content">
