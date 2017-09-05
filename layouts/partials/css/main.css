@@ -93,14 +93,7 @@ body {
   text-rendering: geometricPrecision !important;
 }
 section {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  display: flex;
-}
-
-nav.header {
-  -webkit-align-items: center;
+   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
   /* align-items: center; */
@@ -108,18 +101,12 @@ nav.header {
   -moz-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-}
-
-nav.header .navbar {
+  align-items: center;
   width: 100%;
-  background-color: rgba(0,0,0,0.0);
-}
-
-nav.header .content {
   display: block;
 }
 
-nav.header .content {
+section.header .content {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -133,12 +120,13 @@ nav.header .content {
   -moz-align-items: center;
   -ms-align-items: center;
   align-items: center;
+  display: inline;
 }
-nav.header .logo {
+section.header .content .logo {
   max-width: 100px;
   margin-left: -2em;
 }
-nav.header .name {
+section.header .content .name {
   padding-top: 20px;
   font-size: 28px;
   font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
@@ -150,10 +138,27 @@ nav.header .name {
   color: #333333;
   color: #555555;
 }
-section.header nav {
+
+navi.header .navbar {
+  width: 100%;
+  background-color: rgba(0,0,0,0.0);
+}
+
+nav {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  /* align-items: center; */
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+
+nav {
   margin-bottom: 16px;
 }
-section.header nav ul {
+nav ul {
   list-style: none;
   text-align: center;
   display: -webkit-inline-flex;
@@ -162,17 +167,17 @@ section.header nav ul {
   display: -ms-inline-flex;
   display: inline-flex;
 }
-section.header nav ul a {
+nav ul a {
   margin-left: 6px;
   margin-right: 6px;
 }
-section.header nav ul a:first-child {
+nav ul a:first-child {
   margin-left: 0;
 }
-section.header nav ul a:last-child {
+nav ul a:last-child {
   margin-right: 0;
 }
-nav.header nav ul li {
+nav ul li {
   color: #555555;
   font-weight: 400;
   font-size: 14px;
@@ -183,7 +188,7 @@ nav.header nav ul li {
   -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
-section.header nav ul li:hover {
+nav ul li:hover {
   color: #111111;
 }
 section.footer  {
