@@ -104,6 +104,7 @@ section {
   align-items: center;
   width: 100%;
   display: block;
+  padding-bottom: 0px;
 }
 
 section.header .content {
@@ -178,7 +179,7 @@ nav {
 /* } */
 
 /* nav { */
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 navi.ul {
@@ -438,7 +439,7 @@ section {
   padding: 0 16px;
 }
 section.header {
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 section.header-home {
   padding-top: 36px;
@@ -727,3 +728,5 @@ section.main .content .navigation a {
   padding-right:0;
   height: 200px;
 }
+<`2`><`2`>
+<`2`><`2`>
