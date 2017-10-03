@@ -438,9 +438,6 @@ section.main .container .content .see-more:hover {
 section {
   padding: 0 16px;
 }
-section.header {
-  /* padding-top: 10px; */
-}
 section.header-home {
   padding-top: 36px;
 }
