@@ -466,7 +466,7 @@ img {
   max-width: 100%;
 }
 section.coverimage {
-  margin: auto;
+  /* margin: auto; */
   width: 100%;
   max-width: 100%;
 }
