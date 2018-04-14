@@ -42,6 +42,17 @@
                 </ul>
             {{ end }}
             </div>
+
+            <div class="lastest-edit-posts">
+                <div class="page-heading">Latest Edits</div>
+                    <ul>
+                        {{ range $index, $element := .Data.Pages.ByLastmod.Reverse }}
+                          {{ if le $index 10 }}
+                            {{ partial "li.html" $element }}
+                          {{ end }}
+                        {{ end }}
+                    </ul>
+            </div>
         </div>
 </section>
 <!-- </div> -->
