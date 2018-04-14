@@ -1,12 +1,10 @@
 ---
-description: Daily Journal
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 tags:
   - project
-type: posts
-layout: article
+type: project
 ---
 
 # Objective
@@ -19,3 +17,9 @@ layout: article
 
 
 # Conclusion
+
+
+---
+
+# Resources
+
