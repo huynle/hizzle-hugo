@@ -29,27 +29,22 @@
                 </div>
             {{ end }}
 
+            {{ $projPosts := where .Data.Pages "Params.project" .Params.project }}
+            {{ $projPosts := where $projPosts "Params.type" "!=" "project" }}
+            {{ $projPosts := where $projPosts "Params.project" .Params.project }}
+            {{ $nbPosts := len ($projPosts) }}
+            {{ if gt $nbPosts 0 }}
             <div class="posts">
-              {{ if ne .Params.project nil }}
-
-                {{ $projPosts := where .Site.AllPages "Params.project" .Params.project }}
-                {{ $projPosts := where $projPosts "Params.type" "!=" "project" }}
-
-                {{ $projPosts := where $projPosts "Params.project" .Params.project }}
-                {{ $nbPosts := len ($projPosts) }}
-
-                  {{ if gt $nbPosts 0 }}
-                      <ul>
-                      {{ range $projPosts.GroupByDate "Jan, 2006" "desc" }}
-                          <li class="groupby">{{ .Key }}</li>
-                          {{ range .Pages.ByPublishDate }}
-                            {{ partial "li.html" . }}
-                          {{ end }}
-                      {{ end }}
-                      </ul>
-                  {{ end }}
-                {{ end }}
+                    <ul>
+                    {{ range $projPosts.GroupByDate "Jan, 2006" "desc" }}
+                        <li class="groupby">{{ .Key }}</li>
+                        {{ range .Pages.ByPublishDate }}
+                          {{ partial "li.html" . }}
+                        {{ end }}
+                    {{ end }}
+                    </ul>
             </div>
+            {{ end }}
 
             <div class="best-posts">
             {{ $nbPosts := len (where .Data.Pages "Params.best" true) }}
