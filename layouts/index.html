@@ -29,7 +29,6 @@
                 </div>
             {{ end }}
 
-            {{ $globalTitle := .Title}}
             <div class="posts">
               {{ if ne .Params.project nil }}
 
@@ -44,9 +43,7 @@
                       {{ range $projPosts.GroupByDate "Jan, 2006" "desc" }}
                           <li class="groupby">{{ .Key }}</li>
                           {{ range .Pages.ByPublishDate }}
-                            {{ if ne .Title $globalTitle }}
-                              {{ partial "li.html" . }}
-                            {{ end }}
+                            {{ partial "li.html" . }}
                           {{ end }}
                       {{ end }}
                       </ul>
