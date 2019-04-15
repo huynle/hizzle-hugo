@@ -29,20 +29,21 @@
                 </div>
             {{ end }}
 
+
+            <div class="project-posts">
             {{ $projPosts := where .Data.Pages "Params.project" .Params.project }}
             {{ $projPosts := where $projPosts "Params.type" "!=" "project" }}
             {{ $projPosts := where $projPosts "Params.project" .Params.project }}
             {{ $nbPosts := len ($projPosts) }}
             {{ if gt $nbPosts 0 }}
-            <div class="posts">
                 <div class="page-heading">Projects</div>
-                    <ul>
-                        {{ range $projPosts.Pages.ByPublishDate }}
-                          {{ partial "li.html" . }}
-                        {{ end }}
-                    </ul>
-            </div>
+                <ul>
+                {{ range $projPosts.ByPublishDate }}
+                    {{ partial "li.html" . }}
+                {{ end }}
+                </ul>
             {{ end }}
+            </div>
 
             <div class="best-posts">
             {{ $nbPosts := len (where .Data.Pages "Params.best" true) }}
