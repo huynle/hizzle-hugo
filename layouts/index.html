@@ -29,10 +29,9 @@
                 </div>
             {{ end }}
 
-
             <div class="project-posts">
-            {{ $projPosts := where .Site.Pages "Params.project" .Params.project }}
-            {{ $projPosts := where $projPosts "Params.type" "project" }}
+            {{ $projPosts := where .Site.Pages "Params.type" "project" }}
+            {{ $projPosts := where $projPosts "Params.project" "!=" nil }}
             {{ $nbPosts := len ($projPosts) }}
             {{ if gt $nbPosts 0 }}
                 <div class="page-heading">Projects</div>
