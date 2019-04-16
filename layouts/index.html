@@ -31,7 +31,7 @@
 
 
             <div class="project-posts">
-            {{ $projPosts := where .Data.Pages "Params.project" .Params.project }}
+            {{ $projPosts := where .Site.Pages "Params.project" .Params.project }}
             {{ $projPosts := where $projPosts "Params.type" "project" }}
             {{ $nbPosts := len ($projPosts) }}
             {{ if gt $nbPosts 0 }}
