@@ -35,7 +35,7 @@
             {{ $nbPosts := len ($projPosts) }}
             {{ if gt $nbPosts 0 }}
                 <div class="page-heading">Projects</div>
-                {{ $categories := where $projPosts "Params.categories" }}
+                {{ $categories := where $projPosts "Params.categories" "!=" nil }}
                 <ul>
                 {{ range $categories }}
                     {{ $pageCategoried := where .Site.Pages "Params.categories" "==" . }}
