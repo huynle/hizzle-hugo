@@ -35,9 +35,13 @@
             {{ $nbPosts := len ($projPosts) }}
             {{ if gt $nbPosts 0 }}
                 <div class="page-heading">Projects</div>
+                {{ $categories := where $projPosts "Params.categories" }}
                 <ul>
-                {{ range $projPosts.ByPublishDate }}
-                    {{ partial "li.html" . }}
+                {{ range $categories }}
+                    {{ $pageCategoried := where .Site.Pages "Params.categories" "==" . }}
+                    {{ range $pageCategoried.ByPublishDate }}
+                        {{ partial "li.html" . }}
+                    {{ end }}
                 {{ end }}
                 </ul>
             {{ end }}
