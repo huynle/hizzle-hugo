@@ -36,7 +36,6 @@
             {{ if gt $nbPosts 0 }}
                 <div class="page-heading">Projects</div>
                 {{ $categories := where $projPosts "Params.categories" "!=" nil }}
-                categories are: $categories
                 <ul>
                 {{ range $categories }}
                     {{ $pageCategoried := where .Site.Pages "Params.categories" "==" . }}
