@@ -727,5 +727,10 @@ section.main .content .navigation a {
   padding-right:0;
   height: 200px;
 }
+
+
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+}
 <`2`><`2`>
 <`2`><`2`>

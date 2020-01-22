@@ -33,7 +33,7 @@
                 {{ range sort $.Site.Home.Sections }}
                   {{if (eq .Section "projects") | or (eq .Section "private")}}
                     <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
+                      <a class="dropdown-toggle disabled" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         {{ range (where .Data.Pages "Type" "project")}}
                         <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
