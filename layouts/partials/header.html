@@ -1,59 +1,46 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
-{{ partial "head.html" . }}
-<body>
-
 <section class="header">
-      <div>
-        <div class="left-div">
-          <a href="{{ .Site.BaseURL }}" class="logo">
+  <div>
+    <div class="left-div">
+      <a href="{{ .Site.BaseURL }}" class="logo">
             <img src="{{ .Site.Params.logofile | absURL }}" alt="logo"/>
           </a>
-        </div>
-        <div class="right-div">
-          <a href={{ .Site.BaseURL }} class="name">{{ .Site.Title  }}</a>
-        </div>
-      </div>
+    </div>
+    <div class="right-div">
+      <a href={{ .Site.BaseURL }} class="name">{{ .Site.Title  }}</a>
+    </div>
+  </div>
 
-      <nav class="navbar navbar-default">
-        <!-- <navi class="header"> -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarc">
+  <nav class="navbar navbar-default">
+    <!-- <navi class="header"> -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarc">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-          </div>
+    </div>
 
-          <div id="navbarc" class="collapse navbar-collapse">
-            <!-- <div class="navbar navbar-default navbar-static-top"> -->
-              <ul class="nav navbar-nav">
-                {{ range sort $.Site.Home.Sections }}
-                  {{if (eq .Section "projects") | or (eq .Section "private")}}
-                    <li class="dropdown">
-                      <a class="dropdown-toggle disabled" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        {{ range (where .Data.Pages "Type" "project")}}
-                        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-                        {{ end }}
-                      </ul>
-                    </li>
-                  {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") }}
-                  <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</a></li>
-                  {{ end }}
-                {{ end }}
-
-                {{ range where .Site.RegularPages "Section" ""}}
-                  {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
-                    <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
-                  {{ end }}
-                {{ end }}
-              </ul>
-            <!-- </div> -->
-          </div>
-        <!-- </navi> -->
-      </nav>
-  </section>
-  <!-- </div> -->
+    <div id="navbarc" class="collapse navbar-collapse">
+      <!-- <div class="navbar navbar-default navbar-static-top"> -->
+      <ul class="nav navbar-nav">
+        {{ range sort $.Site.Home.Sections }} {{if (eq .Section "projects") | or (eq .Section "private")}}
+        <li class="dropdown">
+          <a class="dropdown-toggle disabled" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            {{ range (where .Data.Pages "Type" "project")}}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
+        </li>
+        {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") }}
+        <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</a></li>
+        {{ end }} {{ end }} {{ range where .Site.RegularPages "Section" ""}} {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</li></a> {{ end }} {{ end }}
+      </ul>
+      <!-- </div> -->
+    </div>
+    <!-- </navi> -->
+  </nav>
+</section>
+<!-- </div> -->

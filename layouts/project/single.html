@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-{{ partial "coverimage.html" . }}
+{{ define "main" }}
 <section class="main">
         <div class="content">
             {{ $globalTitle := .Title}}
@@ -39,4 +38,4 @@
             </div>
         </div>
 </section>
-{{ partial "footer.html" . }}
+{{ end }}
