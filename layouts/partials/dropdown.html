@@ -1,0 +1,8 @@
+<li class="dropdown">
+    <a class="dropdown-toggle disabled" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        {{ range .Sections }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }} 
+    </ul>
+</li>
