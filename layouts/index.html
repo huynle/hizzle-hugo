@@ -6,9 +6,6 @@
                 {{ .Content }}
                 </div>
             {{ end }}
-            
-            
-            printing: {{ print .Site.GetPage "section" "projects" }}
 
             {{ if isset .Site.Params "latestpostcount" }}
                 <div class="posts">
