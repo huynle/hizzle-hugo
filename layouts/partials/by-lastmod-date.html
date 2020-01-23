@@ -1,0 +1,13 @@
+<ul>
+    <!-- orders content according to the "lastmod" field in front matter -->
+    {{ range .ByLastmod }}
+        <!--<li>-->
+        <!--    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>-->
+        <!--    <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>-->
+        <!--</li>-->
+        <li class="post-item">
+            <span class="meta">{{ .Date.Format .Site.Params.dateform }}</span>
+            <a href="{{ .Permalink }}"><span>{{ .Title }}</span></a>
+        </li>
+    {{ end }}
+</ul>

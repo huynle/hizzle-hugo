@@ -41,25 +41,6 @@
                     </ul>
             </div>
                 
-            <!--{{ $projPosts := where .Site.Pages "Params.type" "project" }}-->
-            <!--{{ $projPosts := where $projPosts "Params.project" "!=" nil }}-->
-            <!--{{ $nbPosts := len ($projPosts) }}-->
-            <!--{{ if gt $nbPosts 0 }}-->
-            
-            <!--    <div class="page-heading">Active Projects</div>-->
-            <!--    number of projects is {{ print $nbPosts }}-->
-            <!--    {{ $categories := where $projPosts "Params.active" "!=" nil }}-->
-            <!--    <ul>-->
-            <!--    {{ range $categories }}-->
-            <!--        {{ $pageCategoried := where .Site.Pages "Params.categories" "==" . }}-->
-            <!--        {{ range $pageCategoried.ByPublishDate }}-->
-            <!--            {{ partial "li.html" . }}-->
-            <!--        {{ end }}-->
-            <!--    {{ end }}-->
-            <!--    </ul>-->
-            <!--{{ end }}-->
-            <!--</div>-->
-
             <div class="best-posts">
             {{ $nbPosts := len (where .Data.Pages "Params.best" true) }}
             {{ if gt $nbPosts 0 }}
