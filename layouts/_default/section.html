@@ -15,7 +15,7 @@
                 <ul>
                     {{ range .Data.Pages.ByPublishDate.Reverse }}
                         {{ if ne .Title $globalTitle }}
-                            {{ partial "li.html" . }}
+                            {{ partial "li_lastmod.html" . }}
                         {{ end }}
                     {{ end }}
                 </ul>
