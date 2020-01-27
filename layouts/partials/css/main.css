@@ -271,7 +271,7 @@ section.main .container {
 }
 section.main .content {
   color: #111111;
-  font-size: 16px;
+  font-size: 14px;
 }
 section.main .content .title-container {
   display: -webkit-flex;
@@ -698,6 +698,11 @@ section.main .content .navigation a {
   color: #313537;
 }
 
+
+.breadcrumb {
+  font-size: 12px;
+}
+
 /* Fonts */
 
 .wf-raleway-n4-active body,
@@ -732,5 +737,8 @@ section.main .content .navigation a {
 ul.nav li.dropdown:hover ul.dropdown-menu {
     display: block;
 }
+
+
+
 <`2`><`2`>
 <`2`><`2`>
