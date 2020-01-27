@@ -26,13 +26,14 @@
       <ul class="nav navbar-nav">
         {{ range sort .Site.Sections }}
           {{if (eq .Section "projects") | or (eq .Section "private")}}
-            {{ partial "dropdown.html" . }}
+              {{ partial "dropdown.html" . }}
           {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") }}
           <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</a></li>
           {{ end }}
         {{ end }}
-        {{ range where .Site.RegularPages "Section" ""}} {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
-          <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
+        {{ range where .Site.RegularPages "Section" ""}}
+          {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
           {{ end }}
         {{ end }}
       </ul>

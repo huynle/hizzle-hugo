@@ -9,6 +9,4 @@ categories:
   - TBD
 coverimage:
 coverCaption:
-type: posts
-layout: article
 ---

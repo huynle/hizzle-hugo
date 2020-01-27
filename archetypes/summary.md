@@ -3,7 +3,6 @@ description: Weekly Summary
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-type: posts
 layout: summary-journal
 project: journal
 ---

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="main">
+    single in default
+    <div class="content">
+        {{ partial "page-heading.html" . }}
+        <div class="markdown">
+            {{ partial "content" . }}
+        </div>
+    </div>
+</section>
+{{ end }}

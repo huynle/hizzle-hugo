@@ -2,6 +2,7 @@
 <section class="main">
         <div class="content">
             {{ $globalTitle := .Title}}
+            single in private
             <div class="markdown">
                 {{ range .Site.AllPages }}
                     {{ if eq .Title $globalTitle }}
@@ -12,7 +13,7 @@
                     {{ end }}
                 {{ end }}
             </div>
-
+            {{ partial "draft-notice.html" . }}
             <div class="posts">
               {{ if ne .Params.project nil }}
 

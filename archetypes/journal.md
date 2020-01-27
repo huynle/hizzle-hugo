@@ -5,7 +5,6 @@ date: {{ .Date }}
 draft: true
 tags:
   - TBD
-type: posts
 layout: daily-journal
 project: journal
 ---
