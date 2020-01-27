@@ -29,7 +29,7 @@
             {{ end }}
             
             <div class="project-posts">
-            {{ $v1 := where .Site.Pages "Params.type" "project" }}
+            {{ $v1 := where .Site.Pages "Section" "projects" }}
             {{ $v2 := where .Site.Pages "Params.status" "active" }}
             {{ $filtered := $v1 | intersect $v2 }}
                 <div class="page-heading">Active Projects</div>
@@ -57,9 +57,9 @@
             <div class="lastest-edit-posts">
                 <div class="page-heading">Latest Edits</div>
                     <ul>
-                        {{ range $index, $element := .Data.Pages.ByLastmod.Reverse }}
+                        {{ range $index, $element := .Site.RegularPages.ByLastmod.Reverse }}
                           {{ if le $index 10 }}
-                            {{ partial "li.html" $element }}
+                            {{ partial "li_lastmod.html" $element }}
                           {{ end }}
                         {{ end }}
                     </ul>
