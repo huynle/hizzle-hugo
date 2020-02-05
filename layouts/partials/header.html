@@ -25,9 +25,9 @@
       <!-- <div class="navbar navbar-default navbar-static-top"> -->
       <ul class="nav navbar-nav">
         {{ range sort .Site.Sections }}
-          {{if (eq .Section "projects") | or (eq .Section "private")}}
+          {{if (eq .Section "projects") | or (eq .Section "private") | or (eq .Section "essentials") }}
               {{ partial "dropdown.html" . }}
-          {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") }}
+          {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") | and (ne .Section "essentials")}}
           <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</a></li>
           {{ end }}
         {{ end }}
