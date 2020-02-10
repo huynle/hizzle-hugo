@@ -2,7 +2,6 @@
 <section class="main non-narrow zero-top-spacing">
         <div class="content">
             {{ $globalTitle := .Title }}
-
             <div class="markdown">
                       <div class="front-matter">
                         {{ partial "updates.html" . }}
@@ -22,6 +21,12 @@
                 </ul>
             {{ end }}
             </div>
+            {{ if .Params.comments}}
+                <div class="disqus">
+                    {{ template "_internal/disqus.html" . }}
+                </div>
+            {{ end }}
+          
         </div>
 </section>
 {{ end }}
