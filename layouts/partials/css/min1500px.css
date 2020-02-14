@@ -2,7 +2,7 @@ section {
 padding: 0 16px;
 margin-left: 10%;
 margin-right: 10%;
-max-width: 70%;
+max-width: 1024px;
 }
 
 section.main .content .markdown figure {
