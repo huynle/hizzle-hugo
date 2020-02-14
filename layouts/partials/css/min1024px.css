@@ -9,9 +9,9 @@ padding-top: 0 !important;
 }
 section {
 padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
+margin-left: 10%;
+margin-right: 10%;
+max-width: 80%;
 }
 section.header {
 background-color: transparent;

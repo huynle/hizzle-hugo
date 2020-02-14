@@ -1,3 +1,10 @@
+section {
+padding: 0 16px;
+margin-left: 10%;
+margin-right: 10%;
+max-width: 70%;
+}
+
 section.main .content .markdown figure {
 width: 110%;
 margin-left: -4%;
