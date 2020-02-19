@@ -1,6 +1,8 @@
-<ol class="breadcrumb">
-  {{ template "breadcrumb" dict "currentPage" .Page "id" .UniqueID }}
-</ol>
+<div>
+  <ol class="breadcrumb">
+    {{ template "breadcrumb" dict "currentPage" .Page "id" .UniqueID }}
+  </ol>
+</div>
 
 <!-- templates -->
 {{ define "breadcrumb" }}
@@ -9,9 +11,17 @@
   {{ end }}
   <li>
     {{ if eq .id .currentPage.UniqueID }}
-      {{ upper .currentPage.Title }}
+      {{ if eq .currentPage.Kind "home" }}
+        HOME 
+      {{ else }}
+        {{ upper .currentPage.Title }}
+      {{ end }}
     {{ else }}
-      <a href="{{ .currentPage.URL }}">{{ upper .currentPage.Title }}</a>
+      {{ if eq .currentPage.Kind "home" }}
+        <a href="{{ .currentPage.URL }}">HOME</a>
+      {{ else }}
+        <a href="{{ .currentPage.URL }}">{{ upper .currentPage.Title }}</a>
+      {{ end }}
     {{ end }}
   </li>
 {{ end }}

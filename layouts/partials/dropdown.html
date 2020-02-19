@@ -1,7 +1,9 @@
-<li class="dropdown">
-    <a class="dropdown-toggle disabled" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
-    <ul class="dropdown-menu multi-level">
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .Section }}</a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        
         <li class="dropdown-item"><a href="{{ .Permalink }}">All</a></li>
+
         {{ $posts := (where .Pages ".IsPage" false) }}
         {{ $postCount := len $posts }}
         {{ if gt $postCount 0 }}

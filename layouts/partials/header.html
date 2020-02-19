@@ -10,7 +10,6 @@
     </div>
   </div>
 
-  
 
 <!--{{ range .Sections }}-->
 <!--  <div>-------</div>-->
@@ -24,39 +23,50 @@
 <!--  {{ end }}-->
 <!--{{ end }}-->
 
-
-  <nav class="navbar navbar-default">
-    <!-- <navi class="header"> -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarc">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-    </div>
-
-    <div id="navbarc" class="collapse navbar-collapse">
-      <!-- <div class="navbar navbar-default navbar-static-top"> -->
-      <ul class="nav navbar-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarc" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarc">
+        <ul class="navbar-nav">
+    
         {{ range sort .Site.Sections }}
           {{if (eq .Section "projects") | or (eq .Section "private") | or (eq .Section "learnings") }}
-              
-                {{ partial "dropdown.html" . }}
-          
+            {{ partial "dropdown.html" . }}
           {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") | and (ne .Section "learnings")}}
-          <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</a></li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ .Section | urlize | absURL }}">{{ .Section }}</a>
+            </li>
           {{ end }}
         {{ end }}
         {{ range where .Site.RegularPages "Section" ""}}
           {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</li></a>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
+            </li>
           {{ end }}
         {{ end }}
       </ul>
+      
+      
       <!-- </div> -->
     </div>
     <!-- </navi> -->
   </nav>
+  <div class="search-box">
+      <!--<form class="search form-inline" text-align="center">-->
+      <!--  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-query">-->
+      <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="{{ .Site.GetPage "/Search" }}">Search</button>-->
+      <!--</form>-->
+    {{ with .Site.GetPage "/Search" }}
+      <form action="{{ .Permalink}}">
+        <input id="search-query" name="q"/>
+      </form>
+    {{ end }}
+
+  </div> 
+  
 </section>
 <!-- </div> -->
