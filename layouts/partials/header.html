@@ -10,6 +10,21 @@
     </div>
   </div>
 
+  
+
+<!--{{ range .Sections }}-->
+<!--  <div>-------</div>-->
+<!--  {{ $posts := (where .Pages ".IsPage" false) }}-->
+<!--  {{ $postCount := len $posts }}-->
+<!--  {{ print $postCount }}-->
+<!--  {{ range .Pages }}-->
+<!--    <div> </div>-->
+<!--    {{ printf "%#v" .Title }}-->
+<!--    {{ printf "%#v" .IsPage }}-->
+<!--  {{ end }}-->
+<!--{{ end }}-->
+
+
   <nav class="navbar navbar-default">
     <!-- <navi class="header"> -->
     <div class="navbar-header">
@@ -26,7 +41,9 @@
       <ul class="nav navbar-nav">
         {{ range sort .Site.Sections }}
           {{if (eq .Section "projects") | or (eq .Section "private") | or (eq .Section "learnings") }}
-              {{ partial "dropdown.html" . }}
+              
+                {{ partial "dropdown.html" . }}
+          
           {{ else if (ne .Section "blog") | and (ne .Section "projects") | and (ne .Section "private") | and (ne .Section "learnings")}}
           <li><a href="{{ .Section | urlize | absURL }}">{{ .Section }}</a></li>
           {{ end }}

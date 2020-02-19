@@ -1,8 +1,13 @@
 <li class="dropdown">
     <a class="dropdown-toggle disabled" data-toggle="dropdown" href="{{ .Permalink }}">{{ .Section }}<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        {{ range .Sections }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }} 
+    <ul class="dropdown-menu multi-level">
+        <li class="dropdown-item"><a href="{{ .Permalink }}">All</a></li>
+        {{ $posts := (where .Pages ".IsPage" false) }}
+        {{ $postCount := len $posts }}
+        {{ if gt $postCount 0 }}
+            {{ range where .Pages ".IsPage" "==" false }}
+                {{ partial "dropdown_submenu.html" . }}
+            {{ end }} 
+        {{ end }}
     </ul>
 </li>
