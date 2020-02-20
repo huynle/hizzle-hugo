@@ -171,12 +171,14 @@ nav {
   -moz-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
+  background-color: transparent;
+  border-color: transparent;
 }
 
-/*.navbar-default {*/
-/*  background-color: transparent;*/
-/*  border-color: transparent;*/
-/*}*/
+.navbar {
+  background-color: transparent;
+  border-color: transparent;
+}
 
 /*.navbar .navbar-nav {*/
 /*  display: inline-block;*/
@@ -219,6 +221,10 @@ nav ul li:hover {
     display: block;
 }
 
+.dropdown-menu {
+  margin-top: 0;
+}
+
 .dropdown-submenu {
     position:relative;
 }
@@ -234,6 +240,7 @@ nav ul li:hover {
     text-decoration: underline;
     transform: rotate(-90deg);
 } 
+
 
 /*.search-box {*/
 /*    width: 150px;*/

@@ -12,15 +12,15 @@
   <li>
     {{ if eq .id .currentPage.UniqueID }}
       {{ if eq .currentPage.Kind "home" }}
-        HOME 
+        <p>HOME</p>
       {{ else }}
         {{ upper .currentPage.Title }}
       {{ end }}
     {{ else }}
       {{ if eq .currentPage.Kind "home" }}
-        <a href="{{ .currentPage.URL }}">HOME</a>
+        <a href="{{ .currentPage.URL }}"><p>HOME/</p></a>
       {{ else }}
-        <a href="{{ .currentPage.URL }}">{{ upper .currentPage.Title }}</a>
+        <a href="{{ .currentPage.URL }}"><p>{{ upper .currentPage.Title }}/</p></a>
       {{ end }}
     {{ end }}
   </li>

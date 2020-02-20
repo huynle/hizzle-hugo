@@ -4,7 +4,23 @@
   <body>
     {{ partial "header.html" . }}
     
-    <!--{{ print .Kind }}-->
+    <!--{{ print .Kind .Title .Sections }}-->
+    <!--{{ range .Sections }}-->
+    <!--  <p> </p>-->
+    <!--  <div>-------</div>-->
+    <!--  {{ $posts := (where .Pages ".IsPage" false) }}-->
+    <!--  {{ $postCount := len $posts }}-->
+    <!--  {{ print .Kind }}-->
+    <!--  {{ print .Title }}-->
+    <!--  {{ print $postCount }}-->
+    <!--  {{ range .Pages }}-->
+    <!--    <div> </div>-->
+    <!--    {{ printf "%#v" .Title }}-->
+    <!--    {{ printf "%#v" .IsPage }}-->
+    <!--  {{ end }}-->
+    <!--  <p> </p>-->
+    <!--{{ end }}-->
+    
     
     {{ partial "breadcrumb.html" . }}
     
