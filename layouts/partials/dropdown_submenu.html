@@ -2,11 +2,8 @@
 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="{{ .Permalink }}">{{ .Title }}</a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         {{ range .Sections }}
-            {{ $posts1 := (where .Pages ".IsPage" false) }}
-            {{ $postCount1 := len $posts1 }}
-            <!--{{ print $postCount1 .Title .Kind }}-->
-            {{ if gt $postCount1 0 }}
-                        {{ partial "dropdown_submenu.html" . }}
+            {{ if gt (len .Sections) 0 }}
+                {{ partial "dropdown_submenu.html" . }}
             {{ else }}
                 <li class="dropdown-item"><a href="{{ .Permalink }}">{{ .Title }}</a></li>
             {{ end }}

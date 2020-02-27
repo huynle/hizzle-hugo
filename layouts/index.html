@@ -6,6 +6,8 @@
                 {{ .Content }}
                 </div>
             {{ end }}
+            
+            {{ print .Site.Sections }}
 
             {{ if isset .Site.Params "latestpostcount" }}
                 <div class="posts">
