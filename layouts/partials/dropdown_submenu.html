@@ -1,5 +1,9 @@
 
-<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="{{ .Permalink }}">{{ .Title }}</a>
+<li class="dropdown-submenu">
+    <a class="dropdown-item dropdown-toggle" href="{{ .Permalink }}">{{ .Title }}</a>
+
+<!--<li class="dropdown-submenu">-->
+<!--    <a class="dropdown-item dropdown-toggle" href="{{ .Permalink }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ .Title }}</a>-->
     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         {{ range .Sections }}
             {{ if gt (len .Sections) 0 }}

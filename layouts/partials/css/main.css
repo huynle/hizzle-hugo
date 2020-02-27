@@ -217,29 +217,46 @@ nav ul li:hover {
   color: #111111;
 }
 
-.navbar-nav li:hover > ul.dropdown-menu {
-    display: block;
-}
+/*.navbar-nav li:hover > ul.dropdown-menu {*/
+/*    display: block;*/
+/*}*/
+/*.dropdown-menu {*/
+/*  margin-top: 0;*/
+/*}*/
 
-.dropdown-menu {
-  margin-top: 0;
-}
+/*.dropdown-submenu {*/
+/*    position:relative;*/
+/*}*/
+
+/*.dropdown-submenu>.dropdown-menu {*/
+/*    top: 0;*/
+/*    left: 100%;*/
+/*    margin-top:-6px;*/
+/*}*/
 
 .dropdown-submenu {
-    position:relative;
+  position: relative;
 }
 
-.dropdown-submenu>.dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top:-6px;
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 6px;
+  top: .8em;
 }
 
- rotate caret on hover 
-.dropdown-menu > li > a:hover:after {
-    text-decoration: underline;
-    transform: rotate(-90deg);
-} 
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+
+/*rotate caret on hover */
+/*.dropdown-menu > li > a:hover:after {*/
+/*    text-decoration: underline;*/
+/*    transform: rotate(-90deg);*/
+/*} */
 
 
 /*.search-box {*/
