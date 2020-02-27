@@ -3,19 +3,24 @@
     <div class="section">
         <a href="/categories/">Back to categories</a>
         <div class="content">
+            
+            layout / tag / taxonomy.html
+            
             <h1>Category: {{ .Title }}</h1>
             {{ .Content }}
         </div>
         <div class="columns is-multiline">
             {{ range .Paginator.Pages }}
             <div class="column is-half">
-                {{ partial "widgets/post-card.html" . }}
+                <ul>
+                    {{ partial "li-preview.html" . }}
+                </ul>
             </div>
             {{ end }}
         </div>
         <div class="columns is-centered">
             <div class="column is-narrow">
-                {{ partial "widgets/pagination.html" . }}
+                {{ partial "pagination.html" . }}
             </div>
         </div>
     </div>

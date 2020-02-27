@@ -235,7 +235,7 @@ nav ul li:hover {
     margin-top:-6px;
 }
 
- /*rotate caret on hover */
+ rotate caret on hover 
 .dropdown-menu > li > a:hover:after {
     text-decoration: underline;
     transform: rotate(-90deg);
@@ -334,9 +334,20 @@ section.main .content .title-container {
   justify-content: space-between;
 }
 
+section.main .content .article{
+  margin-bottom: 10px;
+}
+
+section.main .content .article .date,
+section.main .content .article .name{ 
+  font-size: 15px;
+  font-weight: bold;
+}
+
 section.main .content .posts {
   margin-bottom: 4em;
 }
+
 section.main .content .page-heading {
   font-size: 20px;
   font-weight: 700;
@@ -347,8 +358,21 @@ section.main .content .page-heading {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color: #333333;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
+section.main .content .group-heading{
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 0px;
+}
+
 section.main .content .front-matter .page-heading{
   margin-bottom: 0;
 }

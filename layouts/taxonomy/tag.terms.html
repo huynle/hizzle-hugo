@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
+          Taxonomy / tag.terms.html<br>
+          Showing all the terms
+            <div class="posts">
+              <div class="page-heading">Posts about {{ .Title }}</h1>
+                <ul>
+                {{ $data := .Data }}
+                {{ range $key, $value := .Data.Terms.Alphabetical }}
+                  <li><a href="{{ .Name | urlize }}">{{ .Name }} ({{ .Pages | len }})"</li>
+                {{ end }}
+                </ul>
+              </div>
+            </div>
+        </div>
+</section>
+
+{{ end }}

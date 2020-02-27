@@ -2,15 +2,8 @@
         <a class="nav-link dropdown-toggle" href="{{ .Permalink }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .Section }}</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <li class="dropdown-item"><a href="{{ .Permalink }}">All</a></li>
-        {{ range .Sections }}
-            {{ $posts1 := (where .Pages ".IsPage" false) }}
-            {{ $postCount1 := len $posts1 }}
-            <!--{{ print $postCount1 .Title .Kind }}-->
-            {{ if gt $postCount1 0 }}
-                {{ partial "dropdown_submenu.html" . }}
-            {{ else }}
+        {{ range .Pages }}
                 <li class="dropdown-item"><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-            {{ end }}
         {{ end }}
     </ul>
 </li>

@@ -30,6 +30,12 @@
             </li>
           {{ end }}
         {{ end }}
+        
+        {{ $taxo := "series" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+            {{ partial "dropdown-taxo.html" . }}
+        {{ end }}
+
         {{ range where .Site.RegularPages "Section" ""}}
           {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
             <li class="nav-item active">

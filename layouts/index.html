@@ -27,6 +27,8 @@
                 {{ end }}
                 </div>
             {{ end }}
+           
+            
             
             <div class="project-posts">
             {{ $v1 := where .Site.Pages "Section" "projects" }}
@@ -40,6 +42,20 @@
                     </ul>
             </div>
                 
+            <div class="series-posts">
+                <div class="page-heading">Series</div>
+                    <ul>
+                        {{ range $key, $taxonomy := .Site.Taxonomies.series }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
+            </div>
+            
             <div class="best-posts">
             {{ $nbPosts := len (where .Data.Pages "Params.best" true) }}
             {{ if gt $nbPosts 0 }}
@@ -54,16 +70,28 @@
             {{ end }}
             </div>
 
+            <!--<div class="lastest-edit-posts">-->
+            <!--    <div class="page-heading">Latest Edits</div>-->
+            <!--        <ul>-->
+            <!--            {{ range $index, $element := .Site.RegularPages.ByLastmod.Reverse }}-->
+            <!--              {{ if le $index 10 }}-->
+            <!--                {{ partial "li_lastmod.html" $element }}-->
+            <!--              {{ end }}-->
+            <!--            {{ end }}-->
+            <!--        </ul>-->
+            <!--</div>-->
+            
             <div class="lastest-edit-posts">
+            {{ $paginator := .Paginate .Site.RegularPages }}
                 <div class="page-heading">Latest Edits</div>
-                    <ul>
-                        {{ range $index, $element := .Site.RegularPages.ByLastmod.Reverse }}
-                          {{ if le $index 10 }}
-                            {{ partial "li_lastmod.html" $element }}
-                          {{ end }}
-                        {{ end }}
-                    </ul>
-            </div>
+                <ul>
+                    {{ range $paginator.Pages.ByLastmod.Reverse }}
+                            {{ partial "li-preview.html" . }}
+                    {{ end }}
+                    {{ partial "pagination.html" . }}
+                </ul>
+            </div> 
+            
             {{ partial "tagcloud.html" . }}
         </div>
 </section>

@@ -9,18 +9,22 @@
                       {{ .Content }}
             </div>
 
+            {{ partial "latest-edits.html" . }}
+            
             <div class="posts">
             {{ if ne (len (where .Data.Pages "Title" "!=" $globalTitle)) 0}}
-                <div class="page-heading">{{ .Title }}</div>
+                <div class="page-heading">{{ .Title }} Posts</div>
                 <ul>
-                    {{ range .Data.Pages.ByPublishDate.Reverse }}
+                    {{ range .Paginator.Pages.ByPublishDate.Reverse }}
                         {{ if ne .Title $globalTitle }}
-                            {{ partial "li_lastmod.html" . }}
+                            {{ partial "li-preview.html" . }}
                         {{ end }}
                     {{ end }}
+                    {{ partial "pagination.html" . }}
                 </ul>
             {{ end }}
             </div>
+            
             {{ if .Params.comments}}
                 <div class="disqus">
                     {{ template "_internal/disqus.html" . }}
