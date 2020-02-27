@@ -42,19 +42,19 @@
                     </ul>
             </div>
                 
-            <div class="series-posts">
-                <div class="page-heading">Series</div>
-                    <ul>
-                        {{ range $key, $taxonomy := .Site.Taxonomies.series }}
-                        <li class="group-heading">{{ $key }}</li>
-                        <ul>
-                            {{ range $taxonomy.Pages }}
-                                {{ partial "li.html" . }}
-                            {{ end }}
-                        </ul>
-                        {{ end }}
-                    </ul>
-            </div>
+            <!--<div class="series-posts">-->
+            <!--    <div class="page-heading">Series</div>-->
+            <!--        <ul>-->
+            <!--            {{ range $key, $taxonomy := .Site.Taxonomies.series }}-->
+            <!--            <li class="group-heading">{{ $key }}</li>-->
+            <!--            <ul>-->
+            <!--                {{ range $taxonomy.Pages }}-->
+            <!--                    {{ partial "li.html" . }}-->
+            <!--                {{ end }}-->
+            <!--            </ul>-->
+            <!--            {{ end }}-->
+            <!--        </ul>-->
+            <!--</div>-->
             
             <div class="best-posts">
             {{ $nbPosts := len (where .Data.Pages "Params.best" true) }}

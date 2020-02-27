@@ -37,7 +37,7 @@
         {{ end }}
 
         {{ range where .Site.RegularPages "Section" ""}}
-          {{ if (ne .Title "License") | and (ne .Title "Home") | and (not (in .Site.Params.customPages .Title))}}
+          {{ if (ne .Title "License") | and (ne .Title "Home") | and (ne .Title "Search") | and (not (in .Site.Params.customPages .Title))}}
             <li class="nav-item active">
               <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
             </li>
