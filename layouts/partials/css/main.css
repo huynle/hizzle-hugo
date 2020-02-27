@@ -360,6 +360,10 @@ section.main .content .article .name{
   font-size: 15px;
   font-weight: bold;
 }
+section.main .content .article .extra{
+  font-size: 12px;
+  font-weight: 500;
+}
 
 section.main .content .posts {
   margin-bottom: 4em;
