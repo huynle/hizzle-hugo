@@ -4,7 +4,9 @@
 
 <!--<li class="dropdown-submenu">-->
 <!--    <a class="dropdown-item dropdown-toggle" href="{{ .Permalink }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ .Title }}</a>-->
+
     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <li class="dropdown-item"><a href="{{ .Permalink }}">All</a></li>
         {{ range .Sections }}
             {{ if gt (len .Sections) 0 }}
                 {{ partial "dropdown_submenu.html" . }}

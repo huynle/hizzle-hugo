@@ -1,26 +1,26 @@
 <div>
   <ol class="breadcrumb">
-    {{ template "breadcrumb" dict "currentPage" .Page "id" .UniqueID }}
+    {{ template "breadcrumb" dict "Page" .Page "id" .UniqueID }}
   </ol>
 </div>
 
 <!-- templates -->
 {{ define "breadcrumb" }}
-  {{ if .currentPage.Parent }}
-    {{ template "breadcrumb" dict "currentPage" .currentPage.Parent }}
+  {{ if .Page.Parent }}
+    {{ template "breadcrumb" dict "Page" .Page.Parent }}
   {{ end }}
   <li>
-    {{ if eq .id .currentPage.UniqueID }}
-      {{ if eq .currentPage.Kind "home" }}
+    {{ if eq .id .Page.UniqueID }}
+      {{ if eq .Page.Kind "home" }}
         <p>HOME</p>
       {{ else }}
-        {{ upper .currentPage.Title }}
+        {{ upper .Page.Title }}
       {{ end }}
     {{ else }}
-      {{ if eq .currentPage.Kind "home" }}
-        <a href="{{ .currentPage.URL }}"><p>HOME/</p></a>
+      {{ if eq .Page.Kind "home" }}
+        <a href="{{ .Page.Permalink }}"><p>HOME/</p></a>
       {{ else }}
-        <a href="{{ .currentPage.URL }}"><p>{{ upper .currentPage.Title }}/</p></a>
+        <a href="{{ .Page.Permalink }}"><p>{{ upper .Page.Title }}/</p></a>
       {{ end }}
     {{ end }}
   </li>
