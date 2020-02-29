@@ -34,7 +34,9 @@
             {{ $v1 := where .Site.Pages "Section" "projects" }}
             {{ $v2 := where .Site.Pages "Params.status" "active" }}
             {{ $filtered := $v1 | intersect $v2 }}
-                <div class="page-heading">Active Projects</div>
+                <div class="page-heading">Active Projects
+                    <p class="page-subheading">Showing current active project</p>
+                </div>
                     <ul>
                     {{ range $filtered }}
                         {{ partial "li.html" . }}
@@ -83,7 +85,9 @@
             
             <div class="lastest-edit-posts">
             {{ $paginator := .Paginate .Site.RegularPages }}
-                <div class="page-heading">Latest Edits</div>
+                <div class="page-heading">Latest Edits
+                    <p class="page-subheading">Showing last edited date</p>
+                </div>
                 <ul>
                     {{ range $paginator.Pages.ByLastmod.Reverse }}
                             {{ partial "li-preview.html" . }}

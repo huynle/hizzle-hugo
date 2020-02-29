@@ -13,7 +13,9 @@
             
             <div class="posts">
             {{ if ne (len (where .Data.Pages "Title" "!=" $globalTitle)) 0}}
-                <div class="page-heading">{{ .Title }} Posts</div>
+                <div class="page-heading">{{ .Title }} Posts
+                    <p class="page-subheading">Showing all previous posts in section</p>
+                </div>
                 <ul>
                     {{ range .Paginator.Pages.ByPublishDate.Reverse }}
                         {{ if ne .Title $globalTitle }}

@@ -201,6 +201,7 @@ nav {
 /*  margin-right: 0;*/
 /*}*/
 
+
 nav ul li {
   color: #555555;
   font-weight: 400;
@@ -381,6 +382,13 @@ section.main .content .page-heading {
   color: #333333;
   margin-bottom: 5px;
 }
+section.main .content .page-heading .page-subheading {
+  font-size: 1px;
+  margin-bottom: 0px;
+}
+
+
+
 section.main .content .group-heading{
   font-size: 14px;
   font-weight: 700;
@@ -792,6 +800,16 @@ section.main .content .navigation a {
   color: #313537;
 }
 
+#TableOfContents li {
+  line-height: 1.5;
+  box-sizing: border-box; 
+  text-transform: none;
+}
+
+#TableOfContents ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 .breadcrumb {
   font-size: 10px;
