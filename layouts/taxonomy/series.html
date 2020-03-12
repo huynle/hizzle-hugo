@@ -8,6 +8,7 @@
                 {{ .Content }}
                 
                 {{ range .Paginator.Pages }}
+                    
                     <ul>
                         {{ partial "li-preview.html" . }}
                     </ul>

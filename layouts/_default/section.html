@@ -8,6 +8,7 @@
                       </div>
                       {{ .Content }}
             </div>
+            
 
             {{ partial "latest-edits.html" . }}
             
@@ -36,4 +37,19 @@
             {{ partial "tagcloud.html" . }}
         </div>
 </section>
+{{ end }}
+
+
+{{ define "listsub" }}
+    {{ printf "%#v" .Title }}
+{{ end }}
+
+
+{{ define "section-tree-pages" }}
+  {{ range .Sections.Reverse }}
+  		{{ range .Pages }}
+            {{ printf "%#v" .Title }}
+    	{{ end }}
+    	{{ template "section-tree-pages" . }}
+  {{ end }}
 {{ end }}

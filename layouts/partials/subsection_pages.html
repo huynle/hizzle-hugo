@@ -1,0 +1,9 @@
+{{ template "section-tree-nav" . }}
+
+{{ define "section-tree-nav" }}
+  {{ range .Sections.Reverse}}
+  		{{ range .Pages }}
+    		{{ $.Scratch.Get "pages" | append . }}
+    	{{ end }}
+  {{ end }}
+{{ end }}

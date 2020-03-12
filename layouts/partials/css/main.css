@@ -124,10 +124,11 @@ section.header .content {
   width: 100%;
   /* text-align: center; */
 }
+
 section.header .logo {
-  /* box-sizing: border-box; */
-  /* max-width: 100px; */
-  /* margin-left: -2em; */
+   box-sizing: border-box; 
+   max-width: 100px; 
+   margin-left: -2em; 
 }
 section.header .name {
   /* padding-top: 20px; */
@@ -383,7 +384,7 @@ section.main .content .page-heading {
   margin-bottom: 5px;
 }
 section.main .content .page-heading .page-subheading {
-  font-size: 1px;
+  font-size: 10px;
   margin-bottom: 0px;
 }
 
