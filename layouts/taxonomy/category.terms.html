@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
+            These are the categories that are currently available
+            <div class="categories-posts">
+                <div class="page-heading">Categories</div>
+                    <ul>
+                        {{ range $key, $taxonomy := .Site.Taxonomies.categories }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
+            </div>
+            
+        </div>
+</section>
+
+{{ end }}
