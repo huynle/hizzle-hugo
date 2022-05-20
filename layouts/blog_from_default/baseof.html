@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <!--{{ print .Kind .Title .Sections }}-->
+  <!--{{ range .Sections }}-->
+  <!--  <p> </p>-->
+  <!--  <div>-------</div>-->
+  <!--  {{ $posts := (where .Pages ".IsPage" false) }}-->
+  <!--  {{ $postCount := len $posts }}-->
+  <!--  {{ print .Kind }}-->
+  <!--  {{ print .Title }}-->
+  <!--  {{ print $postCount }}-->
+  <!--  {{ range .Pages }}-->
+  <!--    <div> </div>-->
+  <!--    {{ printf "%#v" .Title }}-->
+  <!--    {{ printf "%#v" .IsPage }}-->
+  <!--  {{ end }}-->
+  <!--  <p> </p>-->
+  <!--{{ end }}-->
+
+
+  {{ partial "breadcrumb.html" . }}
+
+  <!-- Code that all your templates share, like a header -->
+
+  {{ block "main" . }}
+  <!-- The part of the page that begins to differ between templates -->
+  {{ end }}
+
+  <div id="fastSearch">
+    <input id="searchInput" tabindex="0">
+    <ul id="searchResults">
+    </ul>
+  </div>
+  <script src="/js/fuse.js"></script> <!-- download and copy over fuse.js file from fusejs.io -->
+  <script src="/js/fastsearch.js"></script>
+
+  {{ block "footer" . }}
+  <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
+  {{ end }}
+
+  {{ partial "footer.html" . }}
+  {{ partial "footer_scripts" . }}
+</body>
+
+</html>

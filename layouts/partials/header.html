@@ -22,18 +22,33 @@
         <ul class="navbar-nav">
 
         {{ range sort .Site.Sections }}
-          {{ if gt (len .Sections) 0 }}
-            {{ partial "dropdown.html" . }}
-          {{ else if gt (len .Page.Content) 0 }}
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
-            </li>
+          {{ if (ne .Title "Logs") }}
+            {{ if gt (len .Sections) 0 }}
+              {{ partial "dropdown.html" . }}
+            {{ else if gt (len .Page.Content) 0 }}
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
           {{ end }}
         {{ end }}
         
         {{ $taxo := "series" }}
         {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
             {{ partial "dropdown-taxo.html" . }}
+        {{ end }}
+
+
+        {{ range sort .Site.Sections }}
+          {{ if (eq .Title "Logs") }}
+            {{ if gt (len .Sections) 0 }}
+              {{ partial "dropdown.html" . }}
+            {{ else if gt (len .Page.Content) 0 }}
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
         {{ end }}
 
         {{ range where .Site.RegularPages "Section" ""}}

@@ -1,0 +1,55 @@
+{{ define "main" }}
+<section class="main non-narrow zero-top-spacing">
+        <div class="content">
+            {{ $globalTitle := .Title }}
+            <div class="markdown">
+                      <div class="front-matter">
+                        {{ partial "updates.html" . }}
+                      </div>
+                      {{ .Content }}
+            </div>
+            
+
+            {{ partial "latest-edits.html" . }}
+            
+            <div class="posts">
+            {{ if ne (len (where .Data.Pages "Title" "!=" $globalTitle)) 0}}
+                <div class="page-heading">{{ .Title }} Posts
+                    <p class="page-subheading">Showing all previous posts in section</p>
+                </div>
+                <ul>
+                    {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+                        {{ if ne .Title $globalTitle }}
+                            {{ partial "li-preview.html" . }}
+                        {{ end }}
+                    {{ end }}
+                    {{ partial "pagination.html" . }}
+                </ul>
+            {{ end }}
+            </div>
+            
+            {{ if .Params.comments}}
+                <div class="disqus">
+                    {{ template "_internal/disqus.html" . }}
+                </div>
+            {{ end }}
+          
+            {{ partial "tagcloud.html" . }}
+        </div>
+</section>
+{{ end }}
+
+
+{{ define "listsub" }}
+    {{ printf "%#v" .Title }}
+{{ end }}
+
+
+{{ define "section-tree-pages" }}
+  {{ range .Sections.Reverse }}
+  		{{ range .Pages }}
+            {{ printf "%#v" .Title }}
+    	{{ end }}
+    	{{ template "section-tree-pages" . }}
+  {{ end }}
+{{ end }}
