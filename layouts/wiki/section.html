@@ -2,6 +2,10 @@
 <section class="main non-narrow zero-top-spacing">
         <div class="content">
             {{ $globalTitle := .Title }}
+            WIKI SECTION LAYOUT
+
+            {{ partial "tagcloud.html" . }}
+
             <div class="markdown">
                       <div class="front-matter">
                         {{ partial "updates.html" . }}
@@ -33,7 +37,6 @@
                 </div>
             {{ end }}
           
-            {{ partial "tagcloud.html" . }}
         </div>
 </section>
 {{ end }}

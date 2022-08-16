@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
+            BLOG TAXO TERMS
+            These are the blog that are currently available
+            <div class="blog-posts">
+                <div class="page-heading">Blog</div>
+                    <ul>
+                        {{ range $key, $taxonomy := .Site.Taxonomies.blog }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
+            </div>
+            
+        </div>
+</section>
+
+{{ end }}

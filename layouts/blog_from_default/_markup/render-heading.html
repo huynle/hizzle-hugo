@@ -1,3 +1,0 @@
-{{ $heading := index (split .Text " | ") 0 }}
-
-<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ $heading | safeHTML }} <a href="#{{ .Anchor | safeURL }}">#</a></h{{ .Level }}>

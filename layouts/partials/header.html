@@ -40,6 +40,11 @@
         {{ partial "dropdown-taxo.html" . }}
         {{ end }}
 
+        {{ $blog_taxo := "blog" }}
+        {{ with ($.Site.GetPage (printf "/%s" $blog_taxo)) }}
+        {{ partial "dropdown-taxo.html" . }}
+        {{ end }}
+
         {{ range sort .Site.Sections }}
         {{ if in $my_section .Title }}
         {{ if gt (len .Sections) 0 }}

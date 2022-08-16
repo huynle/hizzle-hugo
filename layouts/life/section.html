@@ -2,13 +2,16 @@
 <section class="main non-narrow zero-top-spacing">
         <div class="content">
             {{ $globalTitle := .Title }}
+            LIFE SECTION LAYOUT
+
+            {{ partial "tagcloud.html" . }}
+
             <div class="markdown">
                       <div class="front-matter">
                         {{ partial "updates.html" . }}
                       </div>
                       {{ .Content }}
             </div>
-            
 
             {{ partial "latest-edits.html" . }}
             
@@ -34,7 +37,6 @@
                 </div>
             {{ end }}
           
-            {{ partial "tagcloud.html" . }}
         </div>
 </section>
 {{ end }}

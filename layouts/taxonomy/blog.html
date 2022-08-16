@@ -1,13 +1,16 @@
 {{ define "main" }}
     <section class="main">
-        <a href="/tags/">Back to Tags</a>
+        <a href="/blog/">Back to blog</a>
         
         <div class="content">
-            <div class="series-posts">
-                <h1 class="page-heading">{{ .Title }} Series</h1>
+            <div class="blog-posts">
+                <h1 class="page-heading">{{ .Title }} Blog</h1>
+                BLOG TAXO
+
                 {{ .Content }}
                 
                 {{ range .Paginator.Pages }}
+                    
                     <ul>
                         {{ partial "li-preview.html" . }}
                     </ul>

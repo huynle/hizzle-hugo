@@ -1,0 +1,39 @@
+{{ define "main" }}
+  {{ if .Params.page_template }}
+    {{ partial .Params.page_template . }}
+  {{ else }}
+    <section class="main post non-narrow zero-top-spacing">
+
+    <!-- {{ $archive:= .Type }} -->
+      {{ range (.Site.RegularPages.GroupByDate "2006") }}
+        {{ if and (gt .Key 1) (gt (where .Pages "archive" 1) 0) }}
+
+          {{ range (where .Pages "archive" 1) }}
+            {{ if (eq ($.Scratch.Get "count") 1) }}
+              {{ $.Scratch.Set "count" 0 }}
+              <h1 class="title is-4 has-text-weight-normal">{{ .Date.Format "2006" }}</h1>
+            {{ end }}
+          {{ end }}
+
+          {{ $.Scratch.Set "count" 1 }}
+
+            <ul class="article__list">
+            {{ range (where .Pages "archive" 1) }}
+              {{ if (ne .Params.hidden true) }}
+                <li>
+                  <a class="is-block" href="{{ .RelPermalink }}">
+                    <span class="has-text-grey-dark">{{ .Date.Format "02 Jan" }}</span> — {{ .Title }}
+                  </a>
+                </li>
+              {{ end }}
+            {{ end }}
+            </ul>
+
+      {{ end }}
+    {{ end }}
+    </section>
+  {{ end }}
+{{ end }}
+
+
+

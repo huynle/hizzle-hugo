@@ -1,104 +1,104 @@
 {{ define "main" }}
 <section class="main">
-        <div class="content">
-            {{ range where .Data.Pages "Title" "Home" }}
-                <div class="markdown">
-                {{ .Content }}
-                </div>
-            {{ end }}
+  <div class="content">
+    {{ range where .Data.Pages "Title" "Home" }}
+    <div class="markdown">
+      {{ .Content }}
+    </div>
+    {{ end }}
 
-            {{ if isset .Site.Params "latestpostcount" }}
-                <div class="posts">
-                {{ $nbPosts := len (where .Data.Pages "Type" "blog") }}
-                {{ if gt $nbPosts 0 }}
-                    <div class="page-heading">Latest Posts</div>
-                    <ul>
-                    {{ range (first .Site.Params.latestpostcount (where .Pages "Type" "blog")).GroupByDate "Jan, 2006" "desc" }}
-                        <li class="groupby">{{ .Key }}</li>
-                        {{ range .Pages.ByPublishDate }}
-                            {{ partial "li.html" . }}
-                        {{ end }}
-                    {{ end }}
-                    </ul>
+    {{ if isset .Site.Params "latestpostcount" }}
+    <div class="posts">
+      {{ $nbPosts := len (where .Data.Pages "Type" "blog") }}
+      {{ if gt $nbPosts 0 }}
+      <div class="page-heading">Latest Posts</div>
+      <ul>
+        {{ range (first .Site.Params.latestpostcount (where .Pages "Type" "blog")).GroupByDate "Jan, 2006" "desc" }}
+        <li class="groupby">{{ .Key }}</li>
+        {{ range .Pages.ByPublishDate }}
+        {{ partial "li.html" . }}
+        {{ end }}
+        {{ end }}
+      </ul>
 
-                    {{ if gt $nbPosts .Site.Params.latestpostcount }}
-                        <a href="./posts/" class="see-more">See more ...</a>
-                    {{ end }}
-                {{ end }}
-                </div>
-            {{ end }}
-           
-            
-            
-            <div class="project-posts">
-            {{ $v1 := where .Site.Pages "Section" "projects" }}
-            {{ $v2 := where .Site.Pages "Params.status" "active" }}
-            {{ $filtered := $v1 | intersect $v2 }}
-                <div class="page-heading">Active Projects
-                    <p class="page-subheading">Showing current active project</p>
-                </div>
-                    <ul>
-                    {{ range $filtered }}
-                        {{ partial "li.html" . }}
-                    {{ end }}
-                    </ul>
-            </div>
-                
-            <!--<div class="series-posts">-->
-            <!--    <div class="page-heading">Series</div>-->
-            <!--        <ul>-->
-            <!--            {{ range $key, $taxonomy := .Site.Taxonomies.series }}-->
-            <!--            <li class="group-heading">{{ $key }}</li>-->
-            <!--            <ul>-->
-            <!--                {{ range $taxonomy.Pages }}-->
-            <!--                    {{ partial "li.html" . }}-->
-            <!--                {{ end }}-->
-            <!--            </ul>-->
-            <!--            {{ end }}-->
-            <!--        </ul>-->
-            <!--</div>-->
-            
-            <div class="best-posts">
-            {{ $nbPosts := len (where .Data.Pages "Params.best" true) }}
-            {{ if gt $nbPosts 0 }}
-                <div class="page-heading">Best posts</div>
-                <ul>
-                {{ range .Data.Pages.ByPublishDate }}
-                    {{ if eq .Params.best true }}
-                        {{ partial "li.html" . }}
-                    {{ end }}
-                {{ end }}
-                </ul>
-            {{ end }}
-            </div>
+      {{ if gt $nbPosts .Site.Params.latestpostcount }}
+      <a href="./posts/" class="see-more">See more ...</a>
+      {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
 
-            <!--<div class="lastest-edit-posts">-->
-            <!--    <div class="page-heading">Latest Edits</div>-->
-            <!--        <ul>-->
-            <!--            {{ range $index, $element := .Site.RegularPages.ByLastmod.Reverse }}-->
-            <!--              {{ if le $index 10 }}-->
-            <!--                {{ partial "li_lastmod.html" $element }}-->
-            <!--              {{ end }}-->
-            <!--            {{ end }}-->
-            <!--        </ul>-->
-            <!--</div>-->
-            
-            <div class="lastest-edit-posts">
-            {{ $paginator := .Paginate .Site.RegularPages }}
-                <div class="page-heading">Latest Edits
-                    <p class="page-subheading">Showing last edited date</p>
-                </div>
-                <ul>
-                    {{ range $paginator.Pages.ByLastmod.Reverse }}
-                            {{ partial "li-preview.html" . }}
-                    {{ end }}
-                    {{ partial "pagination.html" . }}
-                </ul>
-            </div> 
-           
-            {{ partial "tagcloud.html" . }}
 
-        </div>
+
+    <div class="project-posts">
+      {{ $v1 := where .Site.Pages "Section" "projects" }}
+      {{ $v2 := where .Site.Pages "Params.status" "active" }}
+      {{ $filtered := $v1 | intersect $v2 }}
+      <div class="page-heading">Active Projects
+        <p class="page-subheading">Showing current active project</p>
+      </div>
+      <ul>
+        {{ range $filtered }}
+        {{ partial "li.html" . }}
+        {{ end }}
+      </ul>
+    </div>
+
+    <!--<div class="series-posts">-->
+    <!--    <div class="page-heading">Series</div>-->
+    <!--        <ul>-->
+    <!--            {{ range $key, $taxonomy := .Site.Taxonomies.series }}-->
+    <!--            <li class="group-heading">{{ $key }}</li>-->
+    <!--            <ul>-->
+    <!--                {{ range $taxonomy.Pages }}-->
+    <!--                    {{ partial "li.html" . }}-->
+    <!--                {{ end }}-->
+    <!--            </ul>-->
+    <!--            {{ end }}-->
+    <!--        </ul>-->
+    <!--</div>-->
+
+    <div class="best-posts">
+      {{ $nbPosts := len (where .Data.Pages "Params.best" true) }}
+      {{ if gt $nbPosts 0 }}
+      <div class="page-heading">Best posts</div>
+      <ul>
+        {{ range .Data.Pages.ByPublishDate }}
+        {{ if eq .Params.best true }}
+        {{ partial "li.html" . }}
+        {{ end }}
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+
+    <!--<div class="lastest-edit-posts">-->
+    <!--    <div class="page-heading">Latest Edits</div>-->
+    <!--        <ul>-->
+    <!--            {{ range $index, $element := .Site.RegularPages.ByLastmod.Reverse }}-->
+    <!--              {{ if le $index 10 }}-->
+    <!--                {{ partial "li_lastmod.html" $element }}-->
+    <!--              {{ end }}-->
+    <!--            {{ end }}-->
+    <!--        </ul>-->
+    <!--</div>-->
+
+    <div class="lastest-edit-posts">
+      {{ $paginator := .Paginate .Site.RegularPages }}
+      <div class="page-heading">Latest Edits
+        <p class="page-subheading">Showing last edited date</p>
+      </div>
+      <ul>
+        {{ range $paginator.Pages.ByLastmod.Reverse }}
+        {{ partial "li-preview.html" . }}
+        {{ end }}
+        {{ partial "pagination.html" . }}
+      </ul>
+    </div>
+
+    {{ partial "tagcloud.html" . }}
+
+  </div>
 </section>
 <!-- </div> -->
 
