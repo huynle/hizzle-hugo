@@ -4,7 +4,6 @@
             {{ $globalTitle := .Title }}
             WIKI SECTION LAYOUT
 
-            {{ partial "tagcloud.html" . }}
 
             <div class="markdown">
                       <div class="front-matter">
@@ -30,6 +29,9 @@
                 </ul>
             {{ end }}
             </div>
+
+
+            {{ partial "tagcloud.html" . }}
             
             {{ if .Params.comments}}
                 <div class="disqus">

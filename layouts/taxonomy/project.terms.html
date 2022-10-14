@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
+            PROJECT TAXO TERMS
+            These are the project that are currently available
+            <div class="project-posts">
+                <div class="page-heading">Project</div>
+                    <ul>
+                        {{ range $key, $taxonomy := .Site.Taxonomies.project }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
+            </div>
+            
+        </div>
+</section>
+
+{{ end }}

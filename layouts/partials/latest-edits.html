@@ -4,7 +4,7 @@
   </div>
   <ul>
     {{ range $index, $element := .Pages.ByLastmod.Reverse }}
-    {{ if le $index 5 }}
+    {{ if le $index 10 }}
     {{ partial "li_lastmod.html" $element }}
     {{ end }}
     {{ end }}

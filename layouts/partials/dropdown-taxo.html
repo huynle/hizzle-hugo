@@ -1,8 +1,8 @@
 <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="{{ .Permalink }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .Section }}</a>
+        <a class="nav-link dropdown-toggle" href="{{ .context.Permalink }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .name }}</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li class="dropdown-item"><a href="{{ .Permalink }}">All</a></li>
-        {{ range .Pages }}
+        <li class="dropdown-item"><a href="{{ .context.Permalink }}">All</a></li>
+        {{ range .context.Pages }}
                 <li class="dropdown-item"><a href="{{ .Permalink }}">{{ .Title }}</a></li>
         {{ end }}
     </ul>
