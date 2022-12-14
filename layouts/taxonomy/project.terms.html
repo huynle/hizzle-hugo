@@ -4,9 +4,9 @@
             PROJECT TAXO TERMS
             These are the project that are currently available
             <div class="project-posts">
-                <div class="page-heading">Project</div>
+                <div class="page-heading">Projects</div>
                     <ul>
-                        {{ range $key, $taxonomy := .Site.Taxonomies.project }}
+                        {{ range $key, $taxonomy := .Site.Taxonomies.projects }}
                         <li class="group-heading">{{ $key }}</li>
                         <ul>
                             {{ range $taxonomy.Pages }}

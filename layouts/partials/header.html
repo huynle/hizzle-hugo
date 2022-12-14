@@ -35,24 +35,33 @@
         {{ end }}
         {{ end }}
 
-        {{ $taxo := "series" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "series")}}
-        {{ end }}
+
+
 
         {{ $taxo := "zk" }}
         {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
         {{ partial "dropdown-taxo.html" (dict "context" . "name" "notes")}}
         {{ end }}
 
-        {{ $taxo := "project" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "projects")}}
-        {{ end }}
+        <!-- {{ $taxo := "projects" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "projects")}} -->
+        <!-- {{ end }} -->
 
         {{ $blog_taxo := "blog" }}
         {{ with ($.Site.GetPage (printf "/%s" $blog_taxo)) }}
         {{ partial "dropdown-taxo.html" (dict "context" . "name" "blog")}}
+        {{ end }}
+
+
+        {{ $taxo := "categories" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "categories")}}
+        {{ end }}
+
+        {{ $taxo := "series" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "series")}}
         {{ end }}
 
         {{ range sort .Site.Sections }}
