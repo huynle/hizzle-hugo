@@ -20,7 +20,7 @@
                     <p class="page-subheading">Showing all previous posts in section</p>
                 </div>
                 <ul>
-                    {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+                    {{ range .Paginator.Pages.ByDate.Reverse }}
                         {{ if ne .Title $globalTitle }}
                             {{ partial "li-preview.html" . }}
                         {{ end }}

@@ -1,12 +1,13 @@
 {{ define "main" }}
 <section class="main post non-narrow zero-top-spacing">
         <div class="content">
-            PROJECT TAXO TERMS
+            Wiki PROJECT TAXO TERMS
             These are the project that are currently available
+
             <div class="project-posts">
-                <div class="page-heading">Projects</div>
+                <div class="page-heading">Wiki-Projects</div>
                     <ul>
-                        {{ range $key, $taxonomy := .Site.Taxonomies.projects }}
+                        {{ range $key, $taxonomy := .Site.Taxonomies.pj }}
                         <li class="group-heading">{{ $key }}</li>
                         <ul>
                             {{ range $taxonomy.Pages }}

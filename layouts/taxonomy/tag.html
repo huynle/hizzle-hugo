@@ -3,17 +3,23 @@
         <a href="/tags/">Back to Tags</a>
         
         <div class="content">
-            <div class="series-posts">
-                <h1 class="page-heading">{{ .Title }} Series</h1>
+            {{ $globalTitle := .Title }}
+
+            <div class="markdown">
+                <div class="front-matter">
+                  {{ partial "updates.html" . }}
+                </div>
                 {{ .Content }}
-                
-                {{ range .Paginator.Pages }}
-                    <ul>
-                        {{ partial "li-preview.html" . }}
-                    </ul>
-                {{ end }}
-                {{ partial "pagination.html" . }}
             </div>
+
+            {{ partial "latest-edits.html" . }}
+            
+            {{ if .Params.comments}}
+                <div class="disqus">
+                    {{ template "_internal/disqus.html" . }}
+                </div>
+            {{ end }}
+          
         </div>
         
     </section>

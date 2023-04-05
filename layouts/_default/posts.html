@@ -19,8 +19,9 @@
 
               {{ range (where .Site.RegularPages "Params.type" "post").GroupByDate "01-2006" }}
               <div class="group-heading"> {{ .Key }} </div>
+
               <ul>
-                {{ range (where .Pages "Params.archive" true) }}
+                {{ range (where .Pages "Params.archive" "!=" true) }}
                   {{ partial "li.html" . }}
                 {{ end }}
               </ul>
@@ -41,4 +42,3 @@
         </div>
 </section>
 {{ end }}
-

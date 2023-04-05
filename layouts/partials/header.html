@@ -22,8 +22,10 @@
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarc">
       <ul class="navbar-nav">
 
-        {{ $my_section := slice "Logs" "Life" }}
+        <!-- logs and life are the title for the _index.md of the section -->
+        {{ $my_section := slice "Logs" "Life" "Posts" }}
         {{ range sort .Site.Sections }}
+          <!-- if not in this section allow to have dropdown -->
         {{ if not (in $my_section .Title) }}
         {{ if gt (len .Sections) 0 }}
         {{ partial "dropdown.html" . }}
@@ -35,18 +37,17 @@
         {{ end }}
         {{ end }}
 
-
-
-
+        <!-- specifically for taxonomy of 'zk' in config.toml -->
         {{ $taxo := "zk" }}
         {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
         {{ partial "dropdown-taxo.html" (dict "context" . "name" "notes")}}
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" $taxo)}} -->
         {{ end }}
 
-        <!-- {{ $taxo := "projects" }} -->
-        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
-        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "projects")}} -->
-        <!-- {{ end }} -->
+        {{ $taxo := "pj" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "wiki-projects")}}
+        {{ end }}
 
         {{ $blog_taxo := "blog" }}
         {{ with ($.Site.GetPage (printf "/%s" $blog_taxo)) }}
@@ -77,13 +78,14 @@
         {{ end }}
 
         {{ range where .Site.RegularPages "Section" ""}}
-        {{ if (ne .Title "License") | and (ne .Title "Home") | and (ne .Title "Search") | and (not (in
-        .Site.Params.customPages .Title))}}
+        {{ if not (in .Site.Params.customPages .Title) }}
         <li class="nav-item active">
           <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
         </li>
         {{ end }}
         {{ end }}
+
+
       </ul>
 
 

@@ -7,6 +7,7 @@
   {{- $img = resources.Get .Destination -}}
 {{- end -}}
 
+
 {{- with $img -}}
   {{- $large := $img.Resize "1200x" -}}
   {{ $medium := $large.Fill "726x402" -}}
@@ -19,6 +20,13 @@
       <figcaption>{{ with $.Title | safeHTML }}{{ . }}{{ end }}</figcaption>
   </figure>
 {{- else -}}
-  <img src="{{ .Destination | safeURL }}" alt="{{ $.Text }}" />
+  {{ if .Title }}
+  <figure>
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <figcaption>{{ .Title }}</figcaption>
+  </figure>
+  {{ else }}
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+  {{ end }}
 {{- end -}}
 
