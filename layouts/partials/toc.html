@@ -1,4 +1,9 @@
-{{ if .Params.toc }}
-    <h4>Table of Contents:</h4>
-    {{.TableOfContents}}
+
+{{ $toc := .TableOfContents }}
+
+{{ with $.Page.Params.toc }}
+<h2 class="title is-2">{{ i18n "toc" . }}</h2>
+<div class="content">
+  {{ $toc }}
+</div>
 {{ end }}
