@@ -720,34 +720,22 @@ section.main .content .markdown blockquote {
 section.main .content .markdown blockquote p:last-child {
   margin-bottom: 0;
 }
-section.main .content .markdown figure {
-  width: 100%;
-  background: #fff;
-  margin-bottom: 1em;
-}
-section.main .content .markdown figure img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  position: static;
-  margin: auto;
-}
 
-figure {
-    display: inline-block;
-    border: 1px dotted gray;
-    margin: 20px; /* adjust as needed */
-}
 
-figure img {
-    vertical-align: top;
-}
-
-figure figcaption {
-    border: 1px dotted blue;
-    text-align: center;
-}
+/* section.main .content .markdown figure { */
+/*   width: 50%; */
+/*   background: #fff; */
+/*   margin-bottom: 1em; */
+/* } */
+/**/
+/* section.main .content .markdown figure img { */
+/*   width: 100%; */
+/*   height: auto; */
+/*   max-width: 100%; */
+/*   display: block; */
+/*   position: static; */
+/*   margin: auto; */
+/* } */
 
 section.main .content .markdown table {
   margin-bottom: 1rem;
@@ -815,6 +803,52 @@ section.main .content .navigation a {
   text-align: center;
   font-style: italic;
   color: #313537;
+}
+
+
+
+figure img{
+  width: 100%;
+  background: #fff;
+  /* margin-bottom: 1em; */
+}
+
+/* img { */
+/*   width: 100%; */
+/*   background: #fff; */
+/*   margin-bottom: 1em; */
+/* } */
+
+/* figure.image-caption { */
+/*   width: 50%; */
+/*   height: auto; */
+/*   max-width: 100%; */
+/*   display: block; */
+/*   position: static; */
+/*   margin: auto; */
+/* } */
+
+.float {
+  width: 30%;
+  font-size: smaller;
+}
+
+.left {
+  float: left;
+  text-align: left;
+  margin: 0 3% 0 0;
+}
+
+.right {
+  float: right;
+  text-align: right;
+  margin: 0 0 0 3%;
+}
+
+figcaption {
+  text-align: center;
+  font-size: smaller;
+  margin: -1em 0 0 0;
 }
 
 #TableOfContents li {
