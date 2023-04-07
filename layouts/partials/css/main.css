@@ -103,7 +103,7 @@ section {
   justify-content: center;
   align-items: center;
   width: 100%;
-  display: block;
+  display: inline-block;
   padding-bottom: 0px;
 }
 
