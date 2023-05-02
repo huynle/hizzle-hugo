@@ -22,27 +22,12 @@
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarc">
       <ul class="navbar-nav">
 
-        <!-- logs and life are the title for the _index.md of the section -->
-        {{ $my_section := slice "Logs" "Life" "Posts" }}
-        {{ range sort .Site.Sections }}
-          <!-- if not in this section allow to have dropdown -->
-        {{ if not (in $my_section .Title) }}
-        {{ if gt (len .Sections) 0 }}
-        {{ partial "dropdown.html" . }}
-        {{ else if gt (len .Page.Content) 0 }}
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-        {{ end }}
-        {{ end }}
-        {{ end }}
-
-        <!-- specifically for taxonomy of 'zk' in config.toml -->
-        {{ $taxo := "zk" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "notes")}}
-        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" $taxo)}} -->
-        {{ end }}
+        {{- /* <!-- <!-- specifically for taxonomy of 'zk' in config.toml --> --> */ -}}
+        {{- /* <!-- {{ $taxo := "zk" }} --> */ -}}
+        {{- /* <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} --> */ -}}
+        {{- /* <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "notes")}} --> */ -}}
+        {{- /* <!-- <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" $taxo)}} --> --> */ -}}
+        {{- /* <!-- {{ end }} --> */ -}}
 
         {{ $taxo := "pj" }}
         {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
@@ -65,26 +50,26 @@
         {{ partial "dropdown-taxo.html" (dict "context" . "name" "series")}}
         {{ end }}
 
-        {{ range sort .Site.Sections }}
-        {{ if in $my_section .Title }}
-        {{ if gt (len .Sections) 0 }}
-        {{ partial "dropdown.html" . }}
-        {{ else if gt (len .Page.Content) 0 }}
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
+        {{- /* <!-- combine together of all sections --> */ -}}
+        {{ $all_sections := slice }}
+        {{ range .Site.Sections }}
+          {{ $all_sections = $all_sections | append . }}
         {{ end }}
-        {{ end }}
-        {{ end }}
-
         {{ range where .Site.RegularPages "Section" ""}}
-        {{ if not (in .Site.Params.customPages .Title) }}
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-        {{ end }}
+          {{ $all_sections = $all_sections | append . }}
         {{ end }}
 
+        {{ range $all_sections }}
+          {{ if in .Site.Params.customPages .Title }}
+            {{ if gt (len .Sections) 0 }}
+              {{ partial "dropdown.html" . }}
+            {{ else if gt (len .Page.Content) 0 }}
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
 
       </ul>
 
