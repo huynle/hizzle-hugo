@@ -53,10 +53,7 @@
   </style>
 {{ end }}
 
-{{ range .Site.Params.extracssfiles }}
-  <link rel="stylesheet" href="{{ . | absURL }}">
-{{ end }}
-
+{{ partialCached "custom-styles.html" . }}
 
 <!-- Icon -->
 <link rel="shortcut icon"

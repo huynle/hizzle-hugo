@@ -74,6 +74,18 @@ window.markmap = {
 {{ end }}
 {{ $js := (slice $jsBase $jsAnchor $jsSearch $jsMermaid $jsPlantuml $jsMarkmap) | resources.Concat "js/main.js" }}
 
+
+{{ range .Site.Params.customJS }}
+{{ if $.Site.IsServer }}
+{{ $script := resources.Get . }}
+<script src="{{ $script.RelPermalink }}"></script>
+{{ else }}
+{{ $script := resources.Get . | minify | fingerprint }}
+<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+{{ end }}
+{{ end }}
+
+
 {{ if not hugo.IsProduction }}
 <script src="{{ $js.RelPermalink }}"></script>
 {{ else }}
