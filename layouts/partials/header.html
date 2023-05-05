@@ -49,6 +49,11 @@
         {{ partial "dropdown-taxo.html" (dict "context" . "name" "family")}}
         {{ end }}
 
+        {{ $taxo := "faith" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "faith")}}
+        {{ end }}
+
         {{ $blog_taxo := "blog" }}
         {{ with ($.Site.GetPage (printf "/%s" $blog_taxo)) }}
         {{ partial "dropdown-taxo.html" (dict "context" . "name" "blog")}}

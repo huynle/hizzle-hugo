@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
+            faith TAXO TERMS
+            These are the faith that are currently available
+
+            <div class="faith-posts">
+                <div class="page-heading">Wiki-faith</div>
+                    <ul>
+                        {{ range $key, $taxonomy := .Site.Taxonomies.faith }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
+            </div>
+            
+        </div>
+</section>
+
+{{ end }}
