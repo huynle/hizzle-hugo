@@ -1,0 +1,23 @@
+{{ define "main" }}
+    <section class="main">
+        <a href="/workshop/">Back to Workshop</a>
+        
+        <div class="content">
+            <div class="workshop-posts">
+                <h1 class="page-heading">{{ .Title }} workshop</h1>
+                workshop TAXO
+
+                {{ .Content }}
+                
+                {{ range .Paginator.Pages }}
+                    
+                    <ul>
+                        {{ partial "li-preview.html" . }}
+                    </ul>
+                {{ end }}
+                {{ partial "pagination.html" . }}
+            </div>
+        </div>
+        
+    </section>
+{{ end }}

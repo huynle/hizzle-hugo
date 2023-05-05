@@ -835,23 +835,6 @@ figure img{
 /*   margin: 1% 1% 1% 1%; */
 /* } */
 
-.float {
-  width: 20%;
-  font-size: smaller;
-}
-
-.left {
-  float: left;
-  text-align: left;
-  /* margin: 0 3% 0 0; */
-  margin: 1% 1% 1% 1%;
-}
-
-.right {
-  float: right;
-  text-align: right;
-  margin: 1% 1% 1% 1%;
-}
 
 figcaption {
   text-align: center;

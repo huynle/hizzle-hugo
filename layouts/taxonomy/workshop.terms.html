@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
+            workshop TAXO TERMS
+            These are the workshop that are currently available
+
+            <div class="workshop-posts">
+                <div class="page-heading">Wiki-workshops</div>
+                    <ul>
+                        {{ range $key, $taxonomy := .Site.Taxonomies.pj }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
+            </div>
+            
+        </div>
+</section>
+
+{{ end }}

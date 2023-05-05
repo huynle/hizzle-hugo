@@ -1,3 +1,6 @@
+
+{{ if gt (len .context.Pages) 0 }}
+
 <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="{{ .context.Permalink }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .name }}</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -7,3 +10,5 @@
         {{ end }}
     </ul>
 </li>
+
+{{ end }}

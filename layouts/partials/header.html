@@ -31,7 +31,22 @@
 
         {{ $taxo := "pj" }}
         {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "wiki-projects")}}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "projects")}}
+        {{ end }}
+
+        {{ $taxo := "workshop" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "workshop")}}
+        {{ end }}
+
+        {{ $taxo := "adventures" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "adventures")}}
+        {{ end }}
+
+        {{ $taxo := "family" }}
+        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+        {{ partial "dropdown-taxo.html" (dict "context" . "name" "family")}}
         {{ end }}
 
         {{ $blog_taxo := "blog" }}
@@ -45,10 +60,10 @@
         {{ partial "dropdown-taxo.html" (dict "context" . "name" "categories")}}
         {{ end }}
 
-        {{ $taxo := "series" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "series")}}
-        {{ end }}
+        <!-- {{ $taxo := "series" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "series")}} -->
+        <!-- {{ end }} -->
 
         {{- /* <!-- combine together of all sections --> */ -}}
         {{ $all_sections := slice }}

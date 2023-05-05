@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="main post non-narrow zero-top-spacing">
+        <div class="content">
+            adventures TAXO TERMS
+            These are the adventures that are currently available
+
+            <div class="adventures-posts">
+                <div class="page-heading">Adventures</div>
+                    <ul>
+                        {{ range $key, $taxonomy := .Site.Taxonomies.adventure }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
+            </div>
+            
+        </div>
+</section>
+
+{{ end }}
