@@ -1,14 +1,23 @@
 {{ define "main" }}
 <section class="main post non-narrow zero-top-spacing">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about {{ .Title }}</div>
-                <ul>
-                    {{ range .Data.Pages.ByPublishDate }}
-                        {{ partial "li.html" . }}
-                    {{ end }}
-                </ul>
+            {{ partial "read-zk-moc-taxo.html" .Type }}
+            <div class="{{ .Type }}-posts">
+                <div class="page-heading">{{ .Type }}</div>
+                    <ul>
+                        {{ range $key, $taxonomy := ( index .Site.Taxonomies .Type ) }}
+                        <li class="group-heading">{{ $key }}</li>
+                        <ul>
+                            {{ range $taxonomy.Pages }}
+                                {{ partial "li.html" . }}
+                            {{ end }}
+                        </ul>
+                        {{ end }}
+                    </ul>
             </div>
+            
         </div>
 </section>
+
 {{ end }}
+
