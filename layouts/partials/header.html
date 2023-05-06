@@ -29,41 +29,51 @@
         {{- /* <!-- <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" $taxo)}} --> --> */ -}}
         {{- /* <!-- {{ end }} --> */ -}}
 
-        {{ $taxo := "pj" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "projects")}}
+       
+        <!-- loop through all site Taxonomies and create dropdowns -->
+        {{ range $key, $taxonomy := $.Site.Taxonomies }}
+          {{ if in $.Site.Params.dropdownTaxo $key }}
+            {{with ($.Site.GetPage (printf "/%s" $key)) }}
+              {{ partial "dropdown-taxo.html" (dict "context" . "name" $key)}}
+            {{ end }}
+          {{ end }}
         {{ end }}
 
-        {{ $taxo := "workshop" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "workshop")}}
-        {{ end }}
-
-        {{ $taxo := "adventures" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "adventures")}}
-        {{ end }}
-
-        {{ $taxo := "family" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "family")}}
-        {{ end }}
-
-        {{ $taxo := "faith" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "faith")}}
-        {{ end }}
-
-        {{ $blog_taxo := "blog" }}
-        {{ with ($.Site.GetPage (printf "/%s" $blog_taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "blog")}}
-        {{ end }}
-
-
-        {{ $taxo := "categories" }}
-        {{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
-        {{ partial "dropdown-taxo.html" (dict "context" . "name" "categories")}}
-        {{ end }}
+        <!-- {{ $taxo := "projects" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "projects")}} -->
+        <!-- {{ end }} -->
+        <!---->
+        <!-- {{ $taxo := "workshop" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "workshop")}} -->
+        <!-- {{ end }} -->
+        <!---->
+        <!-- {{ $taxo := "adventures" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "adventures")}} -->
+        <!-- {{ end }} -->
+        <!---->
+        <!-- {{ $taxo := "family" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "family")}} -->
+        <!-- {{ end }} -->
+        <!---->
+        <!-- {{ $taxo := "faith" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "faith")}} -->
+        <!-- {{ end }} -->
+        <!---->
+        <!-- {{ $blog_taxo := "blog" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $blog_taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "blog")}} -->
+        <!-- {{ end }} -->
+        <!---->
+        <!---->
+        <!-- {{ $taxo := "categories" }} -->
+        <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
+        <!-- {{ partial "dropdown-taxo.html" (dict "context" . "name" "categories")}} -->
+        <!-- {{ end }} -->
 
         <!-- {{ $taxo := "series" }} -->
         <!-- {{ with ($.Site.GetPage (printf "/%s" $taxo)) }} -->
