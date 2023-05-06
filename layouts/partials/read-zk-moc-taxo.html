@@ -1,0 +1,6 @@
+{{ $taxo := . }}
+{{ range (where site.RegularPages "Params.zk" "moc" ) }}
+  {{ if eq (.Title | lower) $taxo }}
+    {{ .Content  }}
+  {{ end }}
+{{ end }}

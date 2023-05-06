@@ -1,13 +1,11 @@
 {{ define "main" }}
 <section class="main post non-narrow zero-top-spacing">
         <div class="content">
-            Wiki PROJECT TAXO TERMS
-            These are the project that are currently available
-
-            <div class="project-posts">
-                <div class="page-heading">Wiki-Projects</div>
+            {{ partial "read-zk-moc-taxo.html" .Type }}
+            <div class="{{ .Type }}-posts">
+                <div class="page-heading">{{ .Type }}</div>
                     <ul>
-                        {{ range $key, $taxonomy := .Site.Taxonomies.pj }}
+                        {{ range $key, $taxonomy := ( index .Site.Taxonomies .Type ) }}
                         <li class="group-heading">{{ $key }}</li>
                         <ul>
                             {{ range $taxonomy.Pages }}

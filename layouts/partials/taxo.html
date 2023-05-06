@@ -1,0 +1,15 @@
+<section class="main">
+    <a href="/{{ .Type }}/">Back to {{ .Type }}</a>
+    <div class="content">
+        {{ partial "read-zk-moc-taxo.html" .Title }}
+        <div class="project-posts">
+            <h1 class="page-heading">{{ .Title }} {{ .Type }}</h1>
+            {{ range .Paginator.Pages }}
+                <ul>
+                    {{ partial "li-preview.html" . }}
+                </ul>
+            {{ end }}
+            {{ partial "pagination.html" . }}
+        </div>
+    </div>
+</section>
