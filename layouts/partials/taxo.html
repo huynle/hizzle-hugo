@@ -4,7 +4,8 @@
         {{ partial "read-zk-moc-taxo.html" .Title }}
         <div class="project-posts">
             <h1 class="page-heading">{{ .Title }} {{ .Type }}</h1>
-            {{ range .Paginator.Pages }}
+            {{- /* <!-- dont show if it is archived --> */ -}}
+            {{ range (where .Paginator.Pages "Params.archive" "!=" true) }}
                 <ul>
                     {{ partial "li-preview.html" . }}
                 </ul>

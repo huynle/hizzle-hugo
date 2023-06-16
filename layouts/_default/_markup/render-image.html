@@ -9,16 +9,17 @@
   {{ end }}
 {{ end}}
 
+{{- $img_name := strings.TrimLeft "assets/" $u.Path  }}
+
 
 {{/* ====================== */}}
 {{/* try to look for local resources first */}}
-{{- $img := .Page.Resources.GetMatch .Destination -}}
+{{- $img := .Page.Resources.GetMatch $img_name -}}
 
 {{/* then it searches in the assets directory */}}
 {{- if and (not $img) .Page.File -}}
-  {{- $img = resources.Get .Destination -}}
+  {{- $img = resources.GetMatch $img_name -}}
 {{- end -}}
-
 
 <figure {{ $addl_attr | safeHTMLAttr }}>
 {{- with $img -}}
@@ -31,7 +32,7 @@
       {{ $large.RelPermalink }} 1200w" sizes="50vw" src="{{ $small.RelPermalink }}" />
   <figcaption>{{ with $.Title | safeHTML }}{{ . }}{{ end }}</figcaption>
 {{- else -}}
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" >
+  <img src="{{ $u.Path | safeURL }}" alt="{{ .Text }}" >
   <figcaption>{{ with .Title | safeHTML }}{{ . }}{{ end }}</figcaption>
 {{- end -}}
 </figure>
