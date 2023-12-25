@@ -1,8 +1,0 @@
-{{ $taxo := . }}
-{{ range (where site.RegularPages "Params.zk" "moc" ) }}
-  {{ if eq (.Title | lower) $taxo }}
-    <div class="markdown">
-      {{ .Content }}
-    </div>
-  {{ end }}
-{{ end }}

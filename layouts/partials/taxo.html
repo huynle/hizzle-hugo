@@ -1,7 +1,39 @@
 <section class="main">
-    <a href="/{{ .Type }}/">Back to {{ .Type }}</a>
     <div class="content">
-        {{ partial "read-zk-moc-taxo.html" .Title }}
+        {{ $taxo := . }}
+
+        {{ range (where site.RegularPages "Params.zk" "moc" ) }}
+          {{ if and (eq (.Title | lower) $taxo.Title) (isset .Params $taxo.Type )}}
+
+            <div class="content">
+                <div class="front-matter">
+                  <div class="title-container">
+                      {{ partial "page-heading" . }}
+                  </div>
+                  <div class="meta">
+                      <div class="date" title="{{ .Date.Format .Site.Params.dateformfull }}">{{ .Date.Format .Site.Params.dateform }}</div>
+                      {{ if not .Params.noauthor }}
+                          {{ if .Params.author }}
+                          <div class="author" title="{{ .Params.Author }}"><div class="middot"></div>{{ .Params.author }}</div>
+                          {{end}}
+                      {{end}}
+                  </div>
+                  {{ partial "coverimage.html" . }}
+                  <div>
+                    {{ partial "updates.html" . }}
+                  </div>
+                </div>
+              <div class="markdown">
+                {{ .Content }}
+              </div>
+            </div>
+
+          {{ end }}
+        {{ end }}
+
+
+
+        <a href="/{{ .Type }}/">Back to {{ .Type }}</a>
         <div class="project-posts">
             <h1 class="page-heading">{{ .Title }} {{ .Type }}</h1>
             {{- /* <!-- dont show if it is archived --> */ -}}
